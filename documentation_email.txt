@@ -1,0 +1,15 @@
+//Payload pak Hendra
+{
+    "template_name":"NEW_COMPLAIN",
+    "email_to":"hendraog@gmail.com",
+    "email_atribute":[
+       {"name":"vendor_name","value":"kawanlama"},
+       {"name":"nama","value":"hendra"}
+    ]
+}
+
+//NEGOTIATION_APPROVED, NEGOTIATION_COUNTERED_TOBUYER, NEGOTIATION_REJECTED
+vendor_name,  buyer_name,  product_name, nego_price,  message, link
+
+
+

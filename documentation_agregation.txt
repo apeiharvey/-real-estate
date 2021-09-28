@@ -1,0 +1,191 @@
+//Documentation :
+//https://wartek-id.gitlab.io/api/siplah/openapiv2/
+
+//Payload
+{
+    "agregation_name":"LOGIN",
+    "user_id":"1", // [Controller]
+    "school_id":"JSAHDS-OSAKODKA-DSADSA", // [Controller]
+    "vendor_id":"1", // auth()->user()->user_ref_id [Helper]
+    "timestamp":"2020-10-10T10:20:10Z", //now() [Helper]
+    "event_desc":"User atas nama Hendra Login", //Vendor melakukan penawaran nego [Controller]
+    "transaction_id":"1", //Nomor Order [Controller]
+    "session_id":"1", //Session PHP request->session() [Helper]
+    "comparison_id":"12", (null)
+    "negotiation_id":"12" //Negotiation [Controller]
+    "ip":"192.168.1.221", //GetIP [Helper]
+    "browser":"Mozzila", //GetBrowser [Helper]
+    "data":"{....}" //param for agregation [Controller]
+}
+
+Example payload NegotiationCountered
+{
+    "agregation_name":"NegotiationCountered",
+    "user_id":"1", // Isi
+    "school_id":"JSAHDS-OSAKODKA-DSADSA", // Isi
+    "vendor_id":"1", // Isi
+    "timestamp":"2020-10-10T10:20:10Z", //now()
+    "event_desc":"Negotiation Countered for CartID : xxx by VendorID", //deskripsi
+    "session_id":"1",
+    "negotiation_id":"12"
+    "ip":"192.168.1.221",
+    "browser":"Mozzila",
+    "data":{
+        "counteredBy": {
+            "school": {
+              "user": "1f81c2f3-cee4-4f32-b6ba-67938804537a",
+              "school": "9bdb095d-7674-42c7-8c02-da1ca80d7bd5",
+              "role": 53,
+              "title": "Kepala sekolah"
+            }
+        },
+        "expectedUnitPrice": 5000,
+        "counteredUnitPrice": 5000,
+        "context": "Isi dari negosiasi.",
+        "occurredAt": "2019-08-24T14:15:22Z",
+        "sentAt": "2019-08-24T14:15:22Z"
+    }
+}
+
+//NegotiationCountered
+{
+    "counteredBy": {
+        "school": {
+          "user": "1f81c2f3-cee4-4f32-b6ba-67938804537a",
+          "school": "9bdb095d-7674-42c7-8c02-da1ca80d7bd5",
+          "role": 53,
+          "title": "Kepala sekolah"
+        }
+    },
+    "expectedUnitPrice": 5000,
+    "counteredUnitPrice": 5000,
+    "context": "Isi dari negosiasi.",
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//NegotiationApproved
+{
+    "approvedBy": {
+        "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+        "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+    },
+    "approvedUnitPrice": 5000,
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//NegotiationRejected
+{
+    "rejectedBy": {
+        "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+        "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+    },
+    "rejectedUnitPrice": 5000,
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//ComplaintFollowedUp
+{
+  "complaint": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+  "followedupBy": {
+    "school": {
+      "user": "1f81c2f3-cee4-4f32-b6ba-67938804537a",
+      "school": "9bdb095d-7674-42c7-8c02-da1ca80d7bd5",
+      "role": 53,
+      "title": "Kepala sekolah"
+    }
+  },
+  "context": "Tindakan lanjutan berupa x.",
+  "occurredAt": "2019-08-24T14:15:22Z",
+  "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//OrderRejected
+{
+    "rejectedBy": {
+        "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+        "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+    },
+    "context": "Pesanan transaksi x ditolak karena y.",
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//OrderProcessed
+{
+    "processedBy": {
+        "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+        "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+    },
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//OrderShipped
+{
+    "shippedBy": {
+        "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+        "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+    },
+        "shippingInfo": {
+        "courier": {
+        "id": "1",
+        "name": "Kurir Toko"
+    },
+        "method": "Reguler"
+    },
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//Cancellation Approved
+{
+    "approvedBy": {
+        "merchant": {
+            "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+            "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+        }
+    },
+    "context": "Transaksi x telah dibatalkan karena y.",
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//CancellationRejected
+{
+    "rejectedBy": {
+        "merchant": {
+            "user": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+            "merchant": "0992ac4c-f0ea-4e81-9f38-80ba17ed0b72"
+        }
+    },
+    "context": "Transaksi x telah dibatalkan karena y.",
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//BastGenerated
+{
+    "generatedBy": {
+        "user": "1f81c2f3-cee4-4f32-b6ba-67938804537a",
+        "school": "9bdb095d-7674-42c7-8c02-da1ca80d7bd5",
+        "role": 53,
+        "title": "Kepala sekolah"
+    },
+    "bast": {
+        "id": "33ef2e1a-2f57-3c4b-a563-46dc433b6b86",
+        "number": "BAST.1.2.1.2",
+        "type": "NPWP"
+    },
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
+
+//PaymentSettled
+{
+    "payment": "0d2a282f-520f-43d3-8496-e542a92e2a6c",
+    "occurredAt": "2019-08-24T14:15:22Z",
+    "sentAt": "2019-08-24T14:15:22Z"
+}
