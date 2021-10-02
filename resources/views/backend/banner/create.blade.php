@@ -18,6 +18,14 @@
         </div>
 
         <div class="form-group">
+          <label for="inputDesc" class="col-form-label">Description</label>
+          <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
+          @error('description')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">
@@ -32,7 +40,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
@@ -63,6 +71,11 @@
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
+      $('#description').summernote({
+      placeholder: "Write short description.....",
+        tabsize: 2,
+        height: 150
+    });
     });
 </script>
 @endpush

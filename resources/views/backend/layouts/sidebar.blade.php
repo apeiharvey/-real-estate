@@ -54,64 +54,35 @@
             Shop
         </div>
 
-    <!-- Categories -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryCollapse" aria-expanded="true" aria-controls="categoryCollapse">
-          <i class="fas fa-sitemap"></i>
-          <span>Category</span>
-        </a>
-        <div id="categoryCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Category Options:</h6>
-            <a class="collapse-item" href="{{route('category.index')}}">Category</a>
-            <a class="collapse-item" href="{{route('category.create')}}">Add Category</a>
-          </div>
-        </div>
-    </li>
-    {{-- Products --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse" aria-expanded="true" aria-controls="productCollapse">
-          <i class="fas fa-cubes"></i>
-          <span>Products</span>
-        </a>
-        <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Product Options:</h6>
-            <a class="collapse-item" href="{{route('product.index')}}">Products</a>
-            <a class="collapse-item" href="{{route('product.create')}}">Add Product</a>
-          </div>
-        </div>
-    </li>
-
-    {{-- Brands --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#brandCollapse" aria-expanded="true" aria-controls="brandCollapse">
-          <i class="fas fa-table"></i>
-          <span>Brands</span>
-        </a>
-        <div id="brandCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Brand Options:</h6>
-            <a class="collapse-item" href="{{route('brand.index')}}">Brands</a>
-            <a class="collapse-item" href="{{route('brand.create')}}">Add Brand</a>
-          </div>
-        </div>
-    </li>
-
-    {{-- Shipping --}}
+    {{-- Cluster --}}
     <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#shippingCollapse" aria-expanded="true" aria-controls="shippingCollapse">
-          <i class="fas fa-truck"></i>
-          <span>Shipping</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#clusterCollapse" aria-expanded="true" aria-controls="clusterCollapse">
+          <i class="fas fa-brailee"></i>
+          <span>Cluster</span>
         </a>
-        <div id="shippingCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="clusterCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Shipping Options:</h6>
-            <a class="collapse-item" href="{{route('shipping.index')}}">Shipping</a>
-            <a class="collapse-item" href="{{route('shipping.create')}}">Add Shipping</a>
+            <h6 class="collapse-header">Cluster Options:</h6>
+            <a class="collapse-item" href="{{route('cluster.index')}}">Cluster</a>
+            <a class="collapse-item" href="{{route('cluster.create')}}">Add Cluster</a>
           </div>
         </div>
     </li> -->
+
+    {{-- House --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#houseCollapse" aria-expanded="true" aria-controls="houseCollapse">
+          <i class="fas fa-home"></i>
+          <span>House</span>
+        </a>
+        <div id="houseCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">House Options:</h6>
+            <a class="collapse-item" href="{{route('house.index')}}">House</a>
+            <a class="collapse-item" href="{{route('house.create')}}">Add House</a>
+          </div>
+        </div>
+    </li>
 
     <!--Orders -->
     <!-- <li class="nav-item">
@@ -127,10 +98,8 @@
             <i class="fas fa-comments"></i>
             <span>Reviews</span></a>
     </li> -->
-    
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+
 
     <!-- Heading -->
     <!-- <div class="sidebar-heading">

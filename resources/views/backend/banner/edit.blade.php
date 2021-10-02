@@ -6,7 +6,7 @@
     <h5 class="card-header">Edit Banner</h5>
     <div class="card-body">
       <form method="post" action="{{route('banner.update',$banner->id)}}">
-        @csrf 
+        @csrf
         @method('PATCH')
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
@@ -16,6 +16,13 @@
         @enderror
         </div>
 
+        <div class="form-group">
+          <label for="inputDesc" class="col-form-label">Description</label>
+          <textarea class="form-control" id="description" name="description">{{$banner->description}}</textarea>
+          @error('description')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
 
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
@@ -32,7 +39,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
@@ -62,7 +69,11 @@
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
-      
+      $('#description').summernote({
+      placeholder: "Write short description.....",
+        tabsize: 2,
+        height: 150
+    });
     });
 </script>
 @endpush

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Banner;
-use App\Models\House;
+use App\Models\Cluster;
 use Illuminate\Support\Str;
-class BannerController extends Controller
+use Auth;
+class ClusterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BannerController extends Controller
     public function index()
 
     {
-        $banner=Banner::orderBy('id','DESC')->paginate(10);
-        return view('backend.banner.index')->with('banners',$banner);
+        $clusters=Cluster::orderBy('id','DESC')->paginate(10);
+        return view('backend.cluster.index')->with('clusters',$clusters);
     }
 
     /**
@@ -27,7 +27,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('backend.banner.create');
+        return view('backend.cluster.create');
     }
 
     /**
@@ -38,29 +38,24 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        //dd($request->all());
         $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
+            'name'=>'string|required',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
+
         $data=$request->all();
-        $slug=Str::slug($request->title);
-        $count=Banner::where('slug',$slug)->count();
-        if($count>0){
-            $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-        }
-        $data['slug']=$slug;
+        $data['created_by'] = Auth::user()->id;
         // return $slug;
-        $status=Banner::create($data);
+        $status=House::create($data);
         if($status){
-            request()->session()->flash('success','Banner successfully added');
+            request()->session()->flash('success','Cluster successfully added');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding banner');
+            request()->session()->flash('error','Error occurred while adding cluster');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('cluster.index');
     }
 
     /**
@@ -82,8 +77,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $banner=Banner::findOrFail($id);
-        return view('backend.banner.edit')->with('banner',$banner);
+        $house=House::findOrFail($id);
+        return view('backend.cluster.edit')->with('house',$house);
     }
 
     /**
@@ -95,29 +90,22 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $banner=Banner::findOrFail($id);
+        $cluster=Cluster::findOrFail($id);
         $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
+            'name'=>'string|required',
             'photo'=>'string|required',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
-        // $slug=Str::slug($request->title);
-        // $count=Banner::where('slug',$slug)->count();
-        // if($count>0){
-        //     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-        // }
-        // $data['slug']=$slug;
-        // return $slug;
-        $status=$banner->fill($data)->save();
+        $data['updated_by'] = Auth::user()->id;
+        $status=$cluster->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Banner successfully updated');
+            request()->session()->flash('success','Cluster successfully updated');
         }
         else{
-            request()->session()->flash('error','Error occurred while updating banner');
+            request()->session()->flash('error','Error occurred while updating cluster');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('cluster.index');
     }
 
     /**
@@ -128,14 +116,14 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner=Banner::findOrFail($id);
-        $status=$banner->delete();
+        $cluster=Cluster::findOrFail($id);
+        $status=$cluster->delete();
         if($status){
-            request()->session()->flash('success','Banner successfully deleted');
+            request()->session()->flash('success','Cluster successfully deleted');
         }
         else{
-            request()->session()->flash('error','Error occurred while deleting banner');
+            request()->session()->flash('error','Error occurred while deleting cluster');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('cluster.index');
     }
 }

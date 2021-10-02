@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Banner;
 use App\Models\House;
 use Illuminate\Support\Str;
-class BannerController extends Controller
+use Auth;
+class HouseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BannerController extends Controller
     public function index()
 
     {
-        $banner=Banner::orderBy('id','DESC')->paginate(10);
-        return view('backend.banner.index')->with('banners',$banner);
+        $houses=House::orderBy('id','DESC')->paginate(10);
+        return view('backend.house.index')->with('houses',$houses);
     }
 
     /**
@@ -27,7 +27,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('backend.banner.create');
+        return view('backend.house.create');
     }
 
     /**
@@ -38,29 +38,30 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        //dd($request->all());
         $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            'photo'=>'string|required',
+            'name'=>'string|required',
+            'description'=>'string|required',
+            'images_thumbnail'=>'string|required',
+            'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
+            'area'=>'numeric|min:1',
+            'bathroom'=>'numeric|min:1',
+            'bedroom'=>'numeric|min:1',
+            'floor'=>'numeric|min:1',
         ]);
+
         $data=$request->all();
-        $slug=Str::slug($request->title);
-        $count=Banner::where('slug',$slug)->count();
-        if($count>0){
-            $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-        }
-        $data['slug']=$slug;
+        $data['created_by'] = Auth::user()->id;
         // return $slug;
-        $status=Banner::create($data);
+        $status=House::create($data);
         if($status){
             request()->session()->flash('success','Banner successfully added');
         }
         else{
             request()->session()->flash('error','Error occurred while adding banner');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('house.index');
     }
 
     /**
@@ -82,8 +83,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $banner=Banner::findOrFail($id);
-        return view('backend.banner.edit')->with('banner',$banner);
+        $house=House::findOrFail($id);
+        return view('backend.house.edit')->with('house',$house);
     }
 
     /**
@@ -95,29 +96,28 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $banner=Banner::findOrFail($id);
+        $house=House::findOrFail($id);
         $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            'photo'=>'string|required',
+            'name'=>'string|required',
+            'description'=>'string|required',
+            'images_thumbnail'=>'string|required',
+            'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
+            'area'=>'numeric|min:1',
+            'bathroom'=>'numeric|min:1',
+            'bedroom'=>'numeric|min:1',
+            'floor'=>'numeric|min:1',
         ]);
         $data=$request->all();
-        // $slug=Str::slug($request->title);
-        // $count=Banner::where('slug',$slug)->count();
-        // if($count>0){
-        //     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
-        // }
-        // $data['slug']=$slug;
-        // return $slug;
-        $status=$banner->fill($data)->save();
+        $data['updated_by'] = Auth::user()->id;
+        $status=$house->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Banner successfully updated');
+            request()->session()->flash('success','House successfully updated');
         }
         else{
-            request()->session()->flash('error','Error occurred while updating banner');
+            request()->session()->flash('error','Error occurred while updating house');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('house.index');
     }
 
     /**
@@ -128,14 +128,14 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner=Banner::findOrFail($id);
-        $status=$banner->delete();
+        $house=House::findOrFail($id);
+        $status=$house->delete();
         if($status){
-            request()->session()->flash('success','Banner successfully deleted');
+            request()->session()->flash('success','House successfully deleted');
         }
         else{
             request()->session()->flash('error','Error occurred while deleting banner');
         }
-        return redirect()->route('banner.index');
+        return redirect()->route('house.index');
     }
 }
