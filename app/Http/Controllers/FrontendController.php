@@ -37,12 +37,12 @@ class FrontendController extends Controller
         $user->email = $request->user_email;
         $user->phone_number = $request->user_phone;
         $user->save();
-        return redirect()->route('simulate.mortage');
+        return redirect()->route('simulate.mortgage');
     }
 
     public function simulateMortgage(){
         $unit_type = House::select('name')->where('status','active')->get();
-        return view('frontend.simulate-mortages', compact(['unit_type']));
+        return view('frontend.simulate-mortgages', compact(['unit_type']));
     }
 
     public function aboutUs(){

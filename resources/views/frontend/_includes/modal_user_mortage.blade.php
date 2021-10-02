@@ -15,7 +15,7 @@
                                 <div class="col-12">
                                     <div class="modal-product-info">
                                         <div class="ltn__comment-reply-area ltn__form-box mb-30">
-                                            <form action="{{route('submit.mortage')}}" method="POST">
+                                            <form action="{{route('submit.mortgage')}}" method="POST">
                                                 @csrf
                                                 <h4>Fill Out This Form to Help You Better</h4>
                                                 <div class="mb-30"></div>
@@ -29,7 +29,7 @@
                                                     <input type="text" name="user_phone" id="phone" placeholder="Phone Number" required>
                                                 </div>
                                                 <div class="btn-wrapper">
-                                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Simulate Mortage</button>
+                                                    <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Simulate Mortgage</button>
                                                 </div>
                                             </form>
                                         </div>
