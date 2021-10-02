@@ -14,4 +14,19 @@
 <!-- Responsive css -->
 <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
 
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+    input:disabled {
+        background: #dddddd;
+    }
+    .hidden {
+        display: none;
+    }
+    .flx {
+        display: flex;
+    }
+</style>
+
 @stack('styles')

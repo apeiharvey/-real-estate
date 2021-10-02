@@ -11,17 +11,3 @@
 
     @include('frontend.pages.homepage.promotion')
 @endsection
-@push('styles')
-    <style>
-        .mr-2, .mx-2 {
-            margin-right: .5rem!important;
-        }
-        .middle-col {
-            display: table-cell;
-            vertical-align: middle;
-        }
-        .pointer {
-            cursor: pointer;
-        }
-    </style>
-@endpush
