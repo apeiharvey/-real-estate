@@ -18,15 +18,11 @@
                                     <div class="input-item">
                                         <select class="nice-select" id="unit_type">
                                             <option value="" selected></option>
-                                            <option>Apartments</option>
-                                            <option>Condos</option>
-                                            <option>Duplexes</option>
-                                            <option>Houses</option>
-                                            <option>Industrial</option>
-                                            <option>Land</option>
-                                            <option>Offices</option>
-                                            <option>Retail</option>
-                                            <option>Villas</option>
+                                            @if(isset($unit_type) && count($unit_type) > 0)
+                                                @foreach($unit_type as $val)
+                                                    <option data-id="{{$val->id}}" value="{{$val->name}}" data-price="{{$val->price}}">{{$val->name}}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
@@ -65,7 +61,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-item">
-                                        <input type="text" name="prices" placeholder="Property Prices" disabled>
+                                        <input type="text" name="prices" placeholder="Property Prices" disabled id="property_price">
                                     </div>
                                 </div>
                             </div>
@@ -100,6 +96,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="text" id='uid' value="{{Request::get('uid')}}" hidden>
                         <div class="btn-wrapper">
                             <button class="theme-btn-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Calculate</button>
                         </div>
@@ -111,6 +108,34 @@
 </div>
 @push('scripts')
 <script>
+    // format money
+    var format = function(num){
+        var str = num.toString().replace("", ""), parts = false, output = [], i = 1, formatted = null;
+        if(str.indexOf(".") > 0) {
+            parts = str.split(".");
+            str = parts[0];
+        }
+        str = str.split("").reverse();
+        for(var j = 0, len = str.length; j < len; j++) {
+            if(str[j] != ".") {
+            output.push(str[j]);
+            if(i%3 == 0 && j < (len - 1)) {
+                output.push(".");
+            }
+            i++;
+            }
+        }
+        formatted = output.reverse().join("");
+        return("" + formatted + ((parts) ? "." + parts[1].substr(0, 2) : ""));
+    }
+
+    $('#unit_type').change(function(e){
+        e.preventDefault();
+        var price = $(this).find(":selected").data('price');
+        $('#property_price').attr('data-price',price);
+        $('#property_price').val(format(price));
+    });
+
     $('#payment_method').change(function(e){
         e.preventDefault();
         val = $(this).val();
@@ -125,7 +150,62 @@
     
     $('#simulate_btn').click(function(e){
         e.preventDefault();
-        alert('halo')
+        var uid = $('#uid').val();
+        var unit_type = $('#unit_type').find(":selected").data('id');
+        var payment = $('#payment_method').find(":selected").val();
+        // dp in percent
+        var dp = $('#down_payment').find(":selected").val();
+        var price = $('#property_price').data('price');
+        // interest rate in percent
+        var interest = $('#interest_rate').find(":selected").val();
+        // time period in years
+        var time_period = $('#time_period').find(":selected").val();
+        // calculate
+        if(!unit_type){
+            alert('pilih unit type');
+            return false;
+        }
+        if(payment){
+            if(payment == 'cbt'){
+
+            } else if(payment == 'kpr'){
+                if(!dp){
+                    alert('pilih dp');
+                    return false;
+                }
+                if(!interest){
+                    alert('pilih interest');
+                    return false;
+                }
+                if(!time_period){
+                    alert('pilih time period');
+                    return false;
+                }
+            }
+        } else {
+            alert('pilih payment');
+            return false;
+        }
+        // check if has user id then save.
+        if(uid){
+            $.ajax({
+                url: "{{route('save.mortgage')}}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    uid: uid,
+                    house_id: unit_type,
+                    payment: payment,
+                    time_period: time_period
+                },
+                success: function(resp){
+                    console.log(resp);
+                },
+                error: function(err){
+                    console.warn(err);
+                }
+            });
+        }
     });
 </script>
 @endpush

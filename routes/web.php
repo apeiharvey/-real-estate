@@ -30,6 +30,7 @@ Auth::routes(['register'=>false]);
 Route::get('/','FrontendController@home')->name('home');
 Route::post('/submit-mortgage','FrontendController@submitMortgage')->name('submit.mortgage');
 Route::get('/simulate-mortgage','FrontendController@simulateMortgage')->name('simulate.mortgage');
+Route::post('/save-user-mortgage','FrontendController@saveUserMortgage')->name('save.mortgage');
 
 // Frontend Routes
 Route::get('/home', 'FrontendController@index');

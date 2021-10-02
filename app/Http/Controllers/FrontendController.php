@@ -48,12 +48,22 @@ class FrontendController extends Controller
         $user->email = $request->user_email;
         $user->phone_number = $request->user_phone;
         $user->save();
-        return redirect()->route('simulate.mortgage');
+        $uid = $user->id;
+        return redirect()->route('simulate.mortgage',['uid' => $uid]);
     }
 
-    public function simulateMortgage(){
-        $unit_type = House::select('name')->where('status','active')->get();
-        return view('frontend.simulate-mortgages', compact(['unit_type']));
+    public function simulateMortgage(Request $request){
+        $unit_type = House::select('id','name','price')->where('status','active')->get();
+        return view('frontend.simulate-mortages', compact(['unit_type']));
+    }
+
+    public function saveUserMortgage(Request $request){
+        $user_mortgage = UserMortage::find($request->uid);
+        $user_mortgage->house_id = $request->house_id;
+        $user_mortgage->payment = strtoupper($request->payment);
+        $user_mortgage->time_period = $request->time_period;
+        $user_mortgage->save();
+        return $user_mortgage->id;
     }
 
     public function aboutUs(){
