@@ -68,9 +68,25 @@
         </div>
 
         <div class="form-group">
-          <label for="area" class="col-form-label">Area <span class="text-danger">*</span></label>
-          <input id="area" type="number" name="area" placeholder="Enter Area"  value="{{$house->area}}" class="form-control">
-          @error('area')
+          <label for="price" class="col-form-label">Price<span class="text-danger">*</span></label>
+          <input id="price" type="number" name="price" placeholder="Enter Price"  value="{{$house->price}}" class="form-control">
+          @error('price')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label for="area_building" class="col-form-label">Area Building<span class="text-danger">*</span></label>
+          <input id="area_building" type="number" name="area_building" placeholder="Enter Building Area"  value="{{$house->area_building}}" class="form-control">
+          @error('area_building')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label for="area_surface" class="col-form-label">Surface Area<span class="text-danger">*</span></label>
+          <input id="area_surface" type="number" name="area_surface" placeholder="Enter Surface Area"  value="{{$house->area_surface}}" class="form-control">
+          @error('area_surface')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>

@@ -45,10 +45,12 @@ class HouseController extends Controller
             'images_thumbnail'=>'string|required',
             'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
-            'area'=>'numeric|min:1',
+            'area_building'=>'numeric|min:1',
+            'area_surface'=>'numeric|min:1',
             'bathroom'=>'numeric|min:1',
             'bedroom'=>'numeric|min:1',
             'floor'=>'numeric|min:1',
+            'price'=>'numeric|min:1'
         ]);
 
         $data=$request->all();
@@ -103,10 +105,12 @@ class HouseController extends Controller
             'images_thumbnail'=>'string|required',
             'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
-            'area'=>'numeric|min:1',
+            'area_building'=>'numeric|min:1',
+            'area_surface'=>'numeric|min:1',
             'bathroom'=>'numeric|min:1',
             'bedroom'=>'numeric|min:1',
             'floor'=>'numeric|min:1',
+            'price'=>'numeric|min:1'
         ]);
         $data=$request->all();
         $data['updated_by'] = Auth::user()->id;

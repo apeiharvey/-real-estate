@@ -42,7 +42,8 @@
                     <td>{{$house->id}}</td>
                     <td>{{$house->name}}</td>
                     <td>
-                      <i class="fas fa-arrows-alt"></i>  : {{$house->area}}<br>
+                      <i class="fas fa-building"></i>  : {{$house->area_building}}<br>
+                      <i class="fas fa-arrows-alt"></i>  : {{$house->area_surface}}<br>
                       <i class="fas fa-bed"></i> : {{$house->bedroom}}<br>
                       <i class="fas fa-bath"></i> : {{$house->bathroom}}<br>
                       <i class="fas fa-arrow-up"></i> : {{$house->floor}}<br>
