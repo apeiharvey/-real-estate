@@ -23,11 +23,7 @@
             <div class="{{$col}}">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
-                        @if(file_exists(asset($val->images)))
                         <img src="{{asset($val->images)}}" alt="{{$val->name}}">
-                        @else
-                        <img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#">
-                        @endif
                     </div>
                     <div class="search-by-place-info">
                         <h4>{{$val->house_name}}</h4>
@@ -53,11 +49,7 @@
             <div class="{{$col}}">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
-                        @if(file_exists(asset($val->images)))
                         <img src="{{asset($val->images)}}" alt="{{$val->name}}">
-                        @else
-                        <img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#">
-                        @endif
                     </div>
                     <div class="search-by-place-info">
                         <h4>{{$val->house_name}}</h4>

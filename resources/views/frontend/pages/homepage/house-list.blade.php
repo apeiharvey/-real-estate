@@ -51,11 +51,7 @@
                                     <div class="col-lg-6 my-auto">
                                         <div class="row house-list slick-arrow-1">
                                             <div class="apartments-plan-img">
-                                                @if(file_exists(asset($val->images_thumbnail)))
                                                 <img src="{{asset($val->images_thumbnail)}}" alt="{{$val->name}}">
-                                                @else
-                                                <img src="{{asset('frontend/img/others/11.png')}}" alt="#">
-                                                @endif
                                             </div>
                                             @if(isset($val->images_detail))
                                                 @if(strpos($val->images_detail,','))
@@ -72,11 +68,7 @@
                                             @if(isset($images_detail))
                                                 @foreach($images_detail as $val_detail)
                                                     <div class="apartments-plan-img">
-                                                        @if(file_exists(asset($val_detail)))
                                                         <img src="{{asset($val_detail)}}" alt="{{$val->name}}">
-                                                        @else
-                                                        <img src="{{asset('frontend/img/others/10.png')}}" alt="#">
-                                                        @endif
                                                     </div>
                                                 @endforeach
                                             @endif
