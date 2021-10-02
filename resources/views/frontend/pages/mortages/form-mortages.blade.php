@@ -167,6 +167,7 @@
         }
         if(payment){
             if(payment == 'cbt'){
+                // calculate
 
             } else if(payment == 'kpr'){
                 if(!dp){
@@ -181,6 +182,8 @@
                     alert('pilih time period');
                     return false;
                 }
+                // calculate
+                
             }
         } else {
             alert('pilih payment');

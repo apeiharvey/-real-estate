@@ -54,7 +54,8 @@ class FrontendController extends Controller
 
     public function simulateMortgage(Request $request){
         $unit_type = House::select('id','name','price')->where('status','active')->get();
-        return view('frontend.simulate-mortages', compact(['unit_type']));
+        $setting = $this->setting;
+        return view('frontend.simulate-mortages', compact(['unit_type', 'setting']));
     }
 
     public function saveUserMortgage(Request $request){

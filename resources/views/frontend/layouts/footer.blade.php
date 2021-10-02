@@ -91,7 +91,7 @@
 				</div>
 				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
 					<div class="ltn__google-map-locations-area">
-						<div id="map"></div>
+						<div id="map" style="width:100%;height:400px;"></div>
 					</div>
 				</div>
 			</div>
