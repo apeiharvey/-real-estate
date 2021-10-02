@@ -109,6 +109,10 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('cluster','ClusterController');
     // House
     Route::resource('house','HouseController');
+    // Room
+    Route::resource('room','RoomController');
+    // Facility
+    Route::resource('facility','FacilityController');
     // Profile
     Route::get('/profile','AdminController@profile')->name('admin-profile');
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
