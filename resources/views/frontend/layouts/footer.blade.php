@@ -6,7 +6,15 @@
 					<div class="footer-widget footer-about-widget">
 						<div class="footer-logo">
 							<div class="site-logo">
-								<img src="{{asset('frontend/img/logo-2.png')}}" alt="Logo">
+								@if(isset($setting) && !empty($setting->logo))
+									@if(file_exists(asset($setting->logo)))
+									<img src="{{asset($setting->logo)}}" alt="Nama Website">
+									@else
+									<img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website">
+									@endif
+								@else
+								<img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website">
+								@endif
 							</div>
 						</div>
 						<p>Nama Website Gallery.</p>

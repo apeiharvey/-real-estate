@@ -17,7 +17,11 @@
                                 <i class="far fa-comments"></i>
                             </div>
                             <div class="ltn__testimonial-image">
+                                @if(file_exists(asset($val->image)))
                                 <img src="{{asset($val->image)}}" alt="{{$val->name}}">
+                                @else
+                                <img src="{{asset('frontend/img/testimonial/1.jpg')}}" alt="#">
+                                @endif
                             </div>
                             <div class="ltn__testimonial-info">
                                 {!!$val->text!!}
@@ -28,7 +32,11 @@
                 <ul class="ltn__testimonial-quote-menu d-none d-lg-block">
                     @foreach($testimonies as $val)
                     <li>
+                        @if(file_exists(asset($val->image)))
                         <img src="{{asset($val->image)}}" alt="{{$val->name}}">
+                        @else
+                        <img src="{{asset('frontend/img/testimonial/1.jpg')}}" alt="">
+                        @endif
                     </li>
                     @endforeach
                 </ul>

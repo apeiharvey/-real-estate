@@ -38,7 +38,8 @@ class FrontendController extends Controller
         $testimonies = Testimony::select('testimony_name','text','image')
                                   ->where('status','active')
                                   ->get();
-        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies']));
+        $setting = $this->setting;
+        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies', 'setting']));
     }
 
     public function submitMortgage(Request $request){
