@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Room Lists</h6>
-      <a href="{{route('room.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add Room"><i class="fas fa-plus"></i> Add Room</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Facility Lists</h6>
+      <a href="{{route('facility.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add Facility"><i class="fas fa-plus"></i> Add Facility</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -42,7 +42,7 @@
                     <td>{{$facility->name}}</td>
                     <td>
                         @if($facility->images)
-                            <img src="{{$room->images}}" class="img-fluid" style="max-width:80px" alt="{{$room->images}}">
+                            <img src="{{$facility->images}}" class="img-fluid" style="max-width:80px" alt="{{$facility->images}}">
                         @else
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                         @endif
@@ -55,11 +55,11 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('room.edit',$room->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('room.destroy',[$room->id])}}">
+                        <a href="{{route('facility.edit',$facility->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                    <form method="POST" action="{{route('facility.destroy',[$facility->id])}}">
                       @csrf 
                       @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id="{{$room->id}}" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                          <button class="btn btn-danger btn-sm dltBtn" data-id="{{$facility->id}}" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>  

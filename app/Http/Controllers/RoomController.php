@@ -16,7 +16,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms=Room::select('rooms.id','rooms.images','rooms.images','rooms.status','houses.name as house_name','rooms.name as room_name')
+        $rooms=Room::select('rooms.id','rooms.images','rooms.status','houses.name as house_name','rooms.name as room_name')
         ->leftJoin('houses','houses.id','=','rooms.house_id')
         ->where('type','room')
         ->orderBy('id','DESC')
@@ -32,8 +32,7 @@ class RoomController extends Controller
     public function create()
     {
         $data = array();
-        $data['houses'] = House::where('status','active')->get();
-        return view('backend.room.create',$data);
+        return view('backend.room.create');
     }
 
     /**
@@ -58,10 +57,10 @@ class RoomController extends Controller
         // return $slug;
         $status=Room::create($data);
         if($status){
-            request()->session()->flash('success','Room successfully added');
+            request()->session()->flash('success','Facility successfully added');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding room');
+            request()->session()->flash('error','Error occurred while adding facility');
         }
         return redirect()->route('room.index');
     }
@@ -86,9 +85,8 @@ class RoomController extends Controller
     public function edit($id)
     {
         $data=array();
-        $data['room']=Room::findOrFail($id);
-        $data['houses']=House::get();
-        return view('backend.room.edit',$data);
+        $data['facility']=Room::findOrFail($id);
+        return view('backend.facility.edit',$data);
     }
 
     /**
