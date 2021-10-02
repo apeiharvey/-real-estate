@@ -28,7 +28,7 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        return view('backend.room.create');
+        return view('backend.facility.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class FacilityController extends Controller
         else{
             request()->session()->flash('error','Error occurred while adding facility');
         }
-        return redirect()->route('room.index');
+        return redirect()->route('facility.index');
     }
 
     /**
@@ -122,11 +122,11 @@ class FacilityController extends Controller
         $query=Room::findOrFail($id);
         $status=$query->delete();
         if($status){
-            request()->session()->flash('success','Room successfully deleted');
+            request()->session()->flash('success','Facility successfully deleted');
         }
         else{
-            request()->session()->flash('error','Error occurred while deleting room');
+            request()->session()->flash('error','Error occurred while deleting facility');
         }
-        return redirect()->route('room.index');
+        return redirect()->route('facility.index');
     }
 }
