@@ -97,7 +97,7 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 // Backend section start
 
 Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
-    Route::get('/','HouseController@index')->name('admin');
+    Route::get('/','AdminController@index')->name('admin');
     Route::get('/file-manager',function(){
         return view('backend.layouts.file-manager');
     })->name('file-manager');
@@ -115,6 +115,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('facility','FacilityController');
     // Testimony
     Route::resource('testimony','TestimonyController');
+
+    Route::get('/mortgage','UserMortgageController@index')->name('mortgage');
     // Profile
     Route::get('/profile','AdminController@profile')->name('admin-profile');
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');

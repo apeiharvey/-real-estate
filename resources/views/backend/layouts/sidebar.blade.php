@@ -145,24 +145,17 @@
     </li> -->
 
     <!-- Heading -->
-    <!-- <div class="sidebar-heading">
-      Posts
-    </div> -->
+    <div class="sidebar-heading">
+      Statistic
+    </div>
 
-    <!-- Posts -->
-    <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Posts</span>
+    <!-- User Mortgage -->
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('mortgage')}}">
+        <i class="fas fa-cog"></i>
+        <span>User Mortgage</span>
       </a>
-      <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Post Options:</h6>
-          <a class="collapse-item" href="{{route('post.index')}}">Posts</a>
-          <a class="collapse-item" href="{{route('post.create')}}">Add Post</a>
-        </div>
-      </div>
-    </li> -->
+    </li>
 
      <!-- Category -->
      <!-- <li class="nav-item">
