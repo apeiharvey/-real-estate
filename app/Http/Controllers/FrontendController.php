@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+
 use App\Models\UserMortage;
+use App\Models\House;
+use App\Models\Room;
 
 class FrontendController extends Controller
 {
@@ -12,10 +15,23 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        return view('frontend.index');
+        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')->where('status','active')->get();
+        $rooms=Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
+                    ->leftJoin('houses','houses.id','rooms.house_id')
+                    ->where('type','room')
+                    ->where('rooms.status','active')
+                    ->where('houses.status','active')
+                    ->get();
+        $facilities=Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
+                    ->leftJoin('houses','houses.id','rooms.house_id')
+                    ->where('type','facility')
+                    ->where('rooms.status','active')
+                    ->where('houses.status','active')
+                    ->get();
+        return view('frontend.index', compact(['unit_type', 'rooms', 'facilities']));
     }
 
-    public function submitMortage(Request $request){
+    public function submitMortgage(Request $request){
         $user = new UserMortage;
         $user->name = $request->user_name;
         $user->email = $request->user_email;
@@ -24,8 +40,9 @@ class FrontendController extends Controller
         return redirect()->route('simulate.mortage');
     }
 
-    public function simulateMortage(){
-        return view('frontend.simulate-mortages');
+    public function simulateMortgage(){
+        $unit_type = House::select('name')->where('status','active')->get();
+        return view('frontend.simulate-mortages', compact(['unit_type']));
     }
 
     public function aboutUs(){

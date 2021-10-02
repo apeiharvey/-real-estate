@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2 text-center">
-                    <h1 class="section-title">Simulate Mortage</h1>
+                    <h1 class="section-title">Simulate Mortgage</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                                 <div class="col-12">
                                     <div class="input-item">
                                         <select class="nice-select" id="unit_type">
-                                            <option selected></option>
+                                            <option value="" selected></option>
                                             <option>Apartments</option>
                                             <option>Condos</option>
                                             <option>Duplexes</option>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="btn-wrapper">
-                            <button class="theme-btn-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Simulate</button>
+                            <button class="theme-btn-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Calculate</button>
                         </div>
                     </form>
                 </div>

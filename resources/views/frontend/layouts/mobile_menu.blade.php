@@ -3,7 +3,7 @@
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
         <div class="ltn__utilize-menu-head">
             <div class="site-logo">
-                <a href="index.html"><img src="{{asset('frontend/img/logo.png')}}" alt="Logo"></a>
+                <a href="{{route('home')}}"><img src="{{asset('frontend/img/logo.png')}}" alt="Nama Website"></a>
             </div>
             <button class="ltn__utilize-close">×</button>
         </div>
@@ -13,7 +13,7 @@
                 <li><a href="#">Uptown State</a></li>
                 <li><a href="#">Facility</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a title="Mortage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortage Simulation</a></li>
+                <li><a title="Mortgage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortgage Simulation</a></li>
             </ul>
         </div>
     </div>

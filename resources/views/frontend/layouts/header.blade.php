@@ -7,7 +7,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo">
-                            <a href="index.html"><img src="{{asset('frontend/img/logo-2.png')}}" alt="Logo"></a>
+                            <a href="{{route('home')}}"><img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website"></a>
                         </div>
                         <div class="get-support clearfix d-none">
                             <div class="get-support-icon">
@@ -25,11 +25,11 @@
                         <nav>
                             <div class="ltn__main-menu">
                                 <ul>
-                                    <li><a class="linkss pointer" data-href="#unit-type">Unit Type</a></li>
-                                    <li><a class="linkss pointer" href="#">Uptown State</a></li>
-                                    <li><a class="linkss pointer" href="#">Facility</a></li>
-                                    <li><a class="linkss pointer" href="#">Contact</a></li>
-                                    <li><a class="pointer" title="Mortage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortage Simulation</a></li>
+                                    <li><a class="linkss pointer" href="{{route('home')}}#unit-type" data-href="#unit-type">Unit Type</a></li>
+                                    <li><a class="linkss pointer" href="{{route('home')}}#unit-type">Uptown State</a></li>
+                                    <li><a class="linkss pointer" href="{{route('home')}}#unit-type">Facility</a></li>
+                                    <li><a class="linkss pointer" href="{{route('home')}}#unit-type">Contact</a></li>
+                                    <li><a class="pointer" title="Mortgage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortgage Simulation</a></li>
                                 </ul>
                             </div>
                         </nav>

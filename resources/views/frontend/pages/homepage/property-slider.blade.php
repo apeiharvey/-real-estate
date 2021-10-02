@@ -8,163 +8,65 @@
                 </div>
             </div>
         </div>
+        @if(isset($rooms))
         <div class="row ltn__search-by-place-slider-1-active property slick-arrow-1">
-            <div class="col-lg-4">
+            @if(count($rooms) < 3)
+                @php
+                    $col = 'col-lg-6';
+                @endphp
+            @else
+            @php
+                $col = 'col-lg-4';
+            @endphp
+            @endif
+            @foreach($rooms as $val)
+            <div class="{{$col}}">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>2 Properties</li>
-                            </ul>
-                        </div>
+                        @if(file_exists(asset($val->images)))
+                        <img src="{{asset($val->images)}}" alt="{{$val->name}}">
+                        @else
+                        <img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#">
+                        @endif
                     </div>
                     <div class="search-by-place-info">
-                        <h6><a href="locations.html">San Francisco</a></h6>
-                        <h4><a href="product-details.html">Mission District Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
+                        <h4>{{$val->house_name}}</h4>
+                        <h6>{{$val->room_name}}</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/2.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>5 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">New York</a></h6>
-                        <h4><a href="product-details.html">Pacific Heights Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/3.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>9 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">Sedona, Arizona</a></h6>
-                        <h4><a href="product-details.html">Noe Valley Zones</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/2.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>5 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">New York</a></h6>
-                        <h4><a href="product-details.html">Pacific Heights Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
+            @endforeach
         </div>
+        @endif
+        @if(isset($facilities))
         <div class="row ltn__search-by-place-slider-1-active facilities slick-arrow-1">
-            <div class="col-lg-4">
+            @if(count($facilities) < 3)
+                @php
+                    $col = 'col-lg-6';
+                @endphp
+            @else
+            @php
+                $col = 'col-lg-4';
+            @endphp
+            @endif
+            @foreach($facilities as $val)
+            <div class="{{$col}}">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>2 Properties</li>
-                            </ul>
-                        </div>
+                        @if(file_exists(asset($val->images)))
+                        <img src="{{asset($val->images)}}" alt="{{$val->name}}">
+                        @else
+                        <img src="{{asset('frontend/img/product-3/1.jpg')}}" alt="#">
+                        @endif
                     </div>
                     <div class="search-by-place-info">
-                        <h6><a href="locations.html">San Francisco</a></h6>
-                        <h4><a href="product-details.html">Mission District Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
+                        <h4>{{$val->house_name}}</h4>
+                        <h6>{{$val->room_name}}</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/2.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>5 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">New York</a></h6>
-                        <h4><a href="product-details.html">Pacific Heights Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/3.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>9 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">Sedona, Arizona</a></h6>
-                        <h4><a href="product-details.html">Noe Valley Zones</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ltn__search-by-place-item">
-                    <div class="search-by-place-img">
-                        <a href="product-details.html"><img src="{{asset('frontend/img/product-3/2.jpg')}}" alt="#"></a>
-                        <div class="search-by-place-badge">
-                            <ul>
-                                <li>5 Properties</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-by-place-info">
-                        <h6><a href="locations.html">New York</a></h6>
-                        <h4><a href="product-details.html">Pacific Heights Area</a></h4>
-                        <div class="search-by-place-btn">
-                            <a href="product-details.html">View Property <i class="flaticon-right-arrow"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
+            @endforeach
         </div>
+        @endif
     </div>
 </div>
