@@ -9,7 +9,7 @@
             </div>
         </div>
         @if(isset($rooms))
-        <div class="row ltn__search-by-place-slider-1-active property slick-arrow-1">
+        <div class="row ltn__search-by-place-slider-1-active property slick-arrow-1" id="uptown-state">
             @if(count($rooms) < 3)
                 @php
                     $col = 'col-lg-6';
@@ -39,7 +39,7 @@
         </div>
         @endif
         @if(isset($facilities))
-        <div class="row ltn__search-by-place-slider-1-active facilities slick-arrow-1">
+        <div class="row ltn__search-by-place-slider-1-active facilities slick-arrow-1" id="facility">
             @if(count($facilities) < 3)
                 @php
                     $col = 'col-lg-6';

@@ -282,7 +282,7 @@
         --------------------------------------------------------- */
         $('.banner').slick({
             autoplay: true,
-            autoplaySpeed: 5000,
+            autoplaySpeed: 4000,
             arrows: false,
             dots: true,
             fade: true,

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\UserMortage;
 use App\Models\House;
 use App\Models\Room;
+use App\Models\Banner;
 
 class FrontendController extends Controller
 {
@@ -15,7 +16,12 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')->where('status','active')->get();
+        $banner = Banner::select('title','photo','description')
+                        ->where('status','active')
+                        ->get();
+        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
+                            ->where('status','active')
+                            ->get();
         $rooms=Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
                     ->leftJoin('houses','houses.id','rooms.house_id')
                     ->where('type','room')
@@ -28,7 +34,7 @@ class FrontendController extends Controller
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
                     ->get();
-        return view('frontend.index', compact(['unit_type', 'rooms', 'facilities']));
+        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities']));
     }
 
     public function submitMortgage(Request $request){
