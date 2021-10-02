@@ -52,7 +52,6 @@
                                         <div class="row house-list slick-arrow-1">
                                             <div class="apartments-plan-img">
                                                 <img src="{{asset($val->images_thumbnail)}}" alt="{{$val->name}}">>
-                                                @endif
                                             </div>
                                             @if(isset($val->images_detail))
                                                 @if(strpos($val->images_detail,','))
