@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\UserMortage;
 use App\Models\House;
 use App\Models\Room;
+use App\Models\Banner;
+use App\Models\Testimonies;
 
 class FrontendController extends Controller
 {
@@ -15,20 +17,28 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')->where('status','active')->get();
-        $rooms=Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
+        $banner = Banner::select('title','photo','description')
+                        ->where('status','active')
+                        ->get();
+        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
+                            ->where('status','active')
+                            ->get();
+        $rooms = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
                     ->leftJoin('houses','houses.id','rooms.house_id')
                     ->where('type','room')
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
                     ->get();
-        $facilities=Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
+        $facilities = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
                     ->leftJoin('houses','houses.id','rooms.house_id')
                     ->where('type','facility')
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
                     ->get();
-        return view('frontend.index', compact(['unit_type', 'rooms', 'facilities']));
+        $testimonies = Testimonies::select('testimony_name','text','image')
+                                  ->where('status','active')
+                                  ->get();
+        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies']));
     }
 
     public function submitMortgage(Request $request){
@@ -37,12 +47,12 @@ class FrontendController extends Controller
         $user->email = $request->user_email;
         $user->phone_number = $request->user_phone;
         $user->save();
-        return redirect()->route('simulate.mortage');
+        return redirect()->route('simulate.mortgage');
     }
 
     public function simulateMortgage(){
         $unit_type = House::select('name')->where('status','active')->get();
-        return view('frontend.simulate-mortages', compact(['unit_type']));
+        return view('frontend.simulate-mortgages', compact(['unit_type']));
     }
 
     public function aboutUs(){

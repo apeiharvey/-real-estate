@@ -28,8 +28,8 @@ Auth::routes(['register'=>false]);
 // Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
 
 Route::get('/','FrontendController@home')->name('home');
-Route::post('/submit-mortgage','FrontendController@submitMortgage')->name('submit.mortage');
-Route::get('/simulate-mortgage','FrontendController@simulateMortgage')->name('simulate.mortage');
+Route::post('/submit-mortgage','FrontendController@submitMortgage')->name('submit.mortgage');
+Route::get('/simulate-mortgage','FrontendController@simulateMortgage')->name('simulate.mortgage');
 
 // Frontend Routes
 Route::get('/home', 'FrontendController@index');
