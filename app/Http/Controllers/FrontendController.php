@@ -7,7 +7,7 @@ use App\Models\UserMortage;
 use App\Models\House;
 use App\Models\Room;
 use App\Models\Banner;
-use App\Models\Testimonies;
+use App\Models\Testimony;
 
 class FrontendController extends Controller
 {
@@ -35,7 +35,7 @@ class FrontendController extends Controller
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
                     ->get();
-        $testimonies = Testimonies::select('testimony_name','text','image')
+        $testimonies = Testimony::select('testimony_name','text','image')
                                   ->where('status','active')
                                   ->get();
         return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies']));
