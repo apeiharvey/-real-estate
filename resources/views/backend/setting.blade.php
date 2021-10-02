@@ -8,21 +8,6 @@
     <form method="post" action="{{route('settings.update')}}">
         @csrf 
         {{-- @method('PATCH') --}}
-        {{-- {{dd($data)}} --}}
-        <div class="form-group">
-          <label for="short_des" class="col-form-label">Short Description <span class="text-danger">*</span></label>
-          <textarea class="form-control" id="quote" name="short_des">{{$data->short_des}}</textarea>
-          @error('short_des')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="description" class="col-form-label">Description <span class="text-danger">*</span></label>
-          <textarea class="form-control" id="description" name="description">{{$data->description}}</textarea>
-          @error('description')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
 
         <div class="form-group">
           <label for="inputPhoto" class="col-form-label">Logo <span class="text-danger">*</span></label>
@@ -37,23 +22,6 @@
         <div id="holder1" style="margin-top:15px;max-height:100px;"></div>
 
           @error('logo')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-
-        <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
-          <div class="input-group">
-              <span class="input-group-btn">
-                  <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                  <i class="fa fa-picture-o"></i> Choose
-                  </a>
-              </span>
-          <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$data->photo}}">
-        </div>
-        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-
-          @error('photo')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
@@ -80,23 +48,9 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="phone_2" class="col-form-label">Phone Number 2</label>
-          <input type="text" class="form-control" name="phone_2" value="{{$data->phone_2}}">
-          @error('phone_2')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="phone_3" class="col-form-label">Phone Number 3</label>
-          <input type="text" class="form-control" name="phone_3" value="{{$data->phone_3}}">
-          @error('phone_3')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="phone_4" class="col-form-label">Phone Number 4</label>
-          <input type="text" class="form-control" name="phone_4" value="{{$data->phone_4}}">
-          @error('phone_4')
+          <label for="twitter" class="col-form-label">Twitter</label>
+          <input type="text" class="form-control" name="twitter" value="{{$data->twitter}}">
+          @error('twitter')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
@@ -118,6 +72,20 @@
           <label for="facebook" class="col-form-label">Facebook</label>
           <input type="text" class="form-control" name="facebook" value="{{$data->facebook}}">
           @error('facebook')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="long" class="col-form-label">Longitude</label>
+          <input type="text" class="form-control" name="long" value="{{$data->long}}">
+          @error('long')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="lat" class="col-form-label">Latitude</label>
+          <input type="text" class="form-control" name="lat" value="{{$data->lat}}">
+          @error('lat')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
