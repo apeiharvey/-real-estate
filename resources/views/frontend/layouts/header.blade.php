@@ -7,16 +7,13 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo">
-                            <a href="{{route('home')}}"><img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website"></a>
-                        </div>
-                        <div class="get-support clearfix d-none">
-                            <div class="get-support-icon">
-                                <i class="icon-call"></i>
-                            </div>
-                            <div class="get-support-info">
-                                <h6>Get Support</h6>
-                                <h4><a href="tel:+123456789">123-456-789-10</a></h4>
-                            </div>
+                            <a href="{{route('home')}}">
+								@if(isset($setting) && !empty($setting->logo))
+                                <img src="{{asset($setting->logo)}}" alt="Nama Website">
+								@else
+                                <img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website">
+                                @endif
+                            </a>
                         </div>
                     </div>
                 </div>
