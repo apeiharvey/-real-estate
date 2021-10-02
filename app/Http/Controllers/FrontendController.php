@@ -25,7 +25,7 @@ class FrontendController extends Controller
     }
 
     public function simulateMortage(){
-        return view('frontend.pages.mortages.simulate-mortages');
+        return view('frontend.simulate-mortages');
     }
 
     public function aboutUs(){
