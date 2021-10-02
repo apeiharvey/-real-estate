@@ -21,7 +21,7 @@
                     @endphp
                 @endif
                 @php $counter++; @endphp
-                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bg="{{$val->photo}}">
+                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bg="{{asset($val->photo)}}">
                     <div class="ltn__slide-item-inner {{$text_style}}">
                         <div class="container">
                             <div class="row">
