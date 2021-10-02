@@ -51,7 +51,7 @@
     <hr class="sidebar-divider">
         <!-- Heading -->
         <div class="sidebar-heading">
-            Shop
+            Content
         </div>
 
     {{-- Cluster --}}
@@ -102,7 +102,7 @@
     {{-- Facility --}}
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facilityCollapse" aria-expanded="true" aria-controls="facilityCollapse">
-          <i class="fas fa-window-maximize"></i>
+          <i class="fas fa-building"></i>
           <span>Facility</span>
         </a>
         <div id="facilityCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -110,6 +110,21 @@
             <h6 class="collapse-header">Facility Options:</h6>
             <a class="collapse-item" href="{{route('facility.index')}}">Facility</a>
             <a class="collapse-item" href="{{route('facility.create')}}">Add Facility</a>
+          </div>
+        </div>
+    </li>
+
+    {{-- Testimony --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonyCollapse" aria-expanded="true" aria-controls="testimonyCollapse">
+          <i class="fas fa-comments"></i>
+          <span>Testimony</span>
+        </a>
+        <div id="testimonyCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Testimony Options:</h6>
+            <a class="collapse-item" href="{{route('testimony.index')}}">Testimony</a>
+            <a class="collapse-item" href="{{route('testimony.create')}}">Add Testimony</a>
           </div>
         </div>
     </li>
