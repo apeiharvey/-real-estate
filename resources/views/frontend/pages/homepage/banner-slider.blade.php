@@ -28,7 +28,8 @@
                                 <div class="col-lg-12 align-self-center">
                                     <div class="slide-item-info">
                                         <div class="slide-item-info-inner ltn__slide-animation">
-                                            <h1 class="slide-title animated ">{!!$val->description!!}</h1>
+                                            <h1 class="slide-title animated text-white">{{$val->title}}</h1>
+                                            <p class="slide-title animated text-white">{!!$val->description!!}</p>
                                         </div>
                                     </div>
                                 </div>
