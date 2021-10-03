@@ -85,8 +85,9 @@ class RoomController extends Controller
     public function edit($id)
     {
         $data=array();
-        $data['facility']=Room::findOrFail($id);
-        return view('backend.facility.edit',$data);
+        $data['room']=Room::findOrFail($id);
+        $data['houses']=House::get();
+        return view('backend.room.edit',$data);
     }
 
     /**

@@ -23,15 +23,3 @@
     });
 </script>
 @stack('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeeHDCOXmUMja1CFg96RbtyKgx381yoBU"></script>
-<script>
-    var latitude = "{{$setting->lat}}";
-    var longitude = "{{$setting->long}}";
-    var map_parameters = { center: {lat: parseFloat(latitude), lng: parseFloat(longitude)}, zoom: 3 };
-	var map = new google.maps.Map(document.getElementById('map'), map_parameters);
-
-	var position1 = { position: {lat: parseFloat(latitude), lng: parseFloat(longitude)}, map: map };
-
-	var marker1 = new google.maps.Marker(position1);
-</script>
-<!-- Google Map js -->

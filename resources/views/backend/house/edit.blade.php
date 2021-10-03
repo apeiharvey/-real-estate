@@ -133,6 +133,8 @@
 <script>
     $('#lfm').filemanager('image');
 
+    $('#lfm_detail').filemanager('image');
+
     $(document).ready(function() {
       $('#description').summernote({
       placeholder: "Write short description.....",

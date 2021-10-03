@@ -152,7 +152,7 @@
     <!-- User Mortgage -->
     <li class="nav-item">
       <a class="nav-link" href="{{route('mortgage')}}">
-        <i class="fas fa-cog"></i>
+        <i class="fas fa-list-alt"></i>
         <span>User Mortgage</span>
       </a>
     </li>

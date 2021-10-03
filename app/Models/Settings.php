@@ -17,6 +17,11 @@ class Settings extends Model
         'facebook',
         'twitter',
         'long',
-        'lat'
+        'lat',
+        'mobile_phone',
+        'twitter_name',
+        'facebook_name',
+        'instagram_name',
+        'brochure'
     ];
 }

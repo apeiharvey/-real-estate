@@ -20,8 +20,23 @@
           <input id="thumbnail1" class="form-control" type="text" name="logo" value="{{$data->logo}}">
         </div>
         <div id="holder1" style="margin-top:15px;max-height:100px;"></div>
-
           @error('logo')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
+        <div class="form-group">
+          <label for="inputMaps" class="col-form-label">Maps <span class="text-danger">*</span></label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <a id="lfm2" data-input="inputMaps" data-preview="holder_maps" class="btn btn-primary">
+                  <i class="fa fa-picture-o"></i> Choose
+                  </a>
+              </span>
+          <input id="inputMaps" class="form-control" type="text" name="photo" value="{{$data->photo}}">
+        </div>
+        <div id="holder_maps" style="margin-top:15px;max-height:100px;"></div>
+          @error('photo')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
@@ -48,30 +63,63 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="twitter" class="col-form-label">Twitter</label>
-          <input type="text" class="form-control" name="twitter" value="{{$data->twitter}}">
-          @error('twitter')
+          <label for="mobile_phone" class="col-form-label">Mobile Phone <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" name="mobile_phone" required value="{{$data->mobile_phone}}">
+          @error('mobile_phone')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
-          <label for="tiktok" class="col-form-label">Tiktok</label>
-          <input type="text" class="form-control" name="tiktok" value="{{$data->tiktok}}">
-          @error('tiktok')
+        <label for="inputPhoto" class="col-form-label">Brochure <span class="text-danger">*</span></label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <a id="lfm_file" data-input="brochure" data-preview="brochure" class="btn btn-primary">
+                <i class="fa fa-picture-o"></i> Choose
+                </a>
+            </span>
+          <input id="brochure" class="form-control" type="text" name="brochure" value="{{$data->brochure}}">
+        </div>
+        <div id="images_thumbnail" style="margin-top:15px;max-height:100px;"></div>
+          @error('images_thumbnail')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="twitter" class="col-form-label">Twitter</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Twitter URL" name="twitter" value="{{$data->twitter}}">
+            <input type="text" class="form-control" placeholder="Twitter Username" name="twitter_name" value="{{$data->twitter_name}}">
+          </div>
+          @error('twitter')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+          @error('twitter_name')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
           <label for="phone_4" class="col-form-label">Instagram</label>
-          <input type="text" class="form-control" name="instagram" value="{{$data->instagram}}">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Instagram URL" name="instagram" value="{{$data->instagram}}">
+            <input type="text" class="form-control" placeholder="Instagram Username" name="instagram_name" value="{{$data->instagram_name}}">
+          </div>
           @error('instagram')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+          @error('instagram_name')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
           <label for="facebook" class="col-form-label">Facebook</label>
-          <input type="text" class="form-control" name="facebook" value="{{$data->facebook}}">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Facebook URL" name="facebook" value="{{$data->facebook}}">
+            <input type="text" class="form-control" placeholder="Facebook Username" name="facebook_name" value="{{$data->facebook_name}}">
+          </div>
           @error('facebook')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+          @error('facebook_name')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
@@ -110,8 +158,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <script>
-    $('#lfm').filemanager('image');
-    $('#lfm1').filemanager('image');
+    $('#lfm1').filemanager('images');
+    $('#lfm2').filemanager('images');
+    $('#lfm_file').filemanager('files');
     $(document).ready(function() {
     $('#summary').summernote({
       placeholder: "Write short description.....",

@@ -71,11 +71,7 @@
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
-      $('#description').summernote({
-      placeholder: "Write short description.....",
-        tabsize: 2,
-        height: 150
-    });
+      
     });
 </script>
 @endpush
