@@ -14137,6 +14137,11 @@ input.cart-plus-minus-box {
     background-color: var(--ltn__secondary-color);
     color: var(--white); }
 
+  .btn-orange {
+    background-color: var(--red-2);
+    color: var(--ltn__primary-color);
+  }
+
 .btn-black {
   background-color: var(--black);
   color: var(--white); }

@@ -57,7 +57,7 @@
 								<li>
 									<h4>
 										<i class="fab fa-twitter mr-2"></i>
-										<a target="_blank" href="{{$setting->twitter}}">twitter.com</a>
+										<a target="_blank" href="{{$setting->twitter}}">{{$setting->twitter_name}}</a>
 									</h4>
 								</li>
 								@endif
@@ -65,7 +65,7 @@
 								<li>
 									<h4>
 										<i class="fab fa-facebook mr-2"></i>
-										<a target="_blank" href="{{$setting->facebook}}">facebook.com</a>
+										<a target="_blank" href="{{$setting->facebook}}">{{$setting->facebook_name}}</a>
 									</h4>
 								</li>
 								@endif
@@ -73,7 +73,7 @@
 								<li>
 									<h4>
 										<i class="fab fa-instagram mr-2"></i>
-										<a target="_blank" href="{{$setting->instagram}}">instagram.com</a>
+										<a target="_blank" href="{{$setting->instagram}}">{{$setting->instagram_name}}</a>
 									</h4>
 								</li>
 								@endif
