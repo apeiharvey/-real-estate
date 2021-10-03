@@ -64,7 +64,7 @@
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
                     <div class="btn-wrapper">
-                        <a href="{{asset($setting->brochure)}}" class="btn btn-effect-3 btn-orange text-white" >Get Brochure</a>
+                        <a href="{{asset($setting->brochure)}}" class="btn btn-effect-3 btn-orange text-white" download>Get Brochure</a>
                     </div>
                 </div>
             </div>
