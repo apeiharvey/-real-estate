@@ -7,6 +7,7 @@ use App\Models\Settings;
 use App\Models\House;
 use App\Models\Room;
 use App\Models\Testimony;
+use App\Models\UserMortage;
 use App\User;
 use App\Rules\MatchOldPassword;
 use Hash;
@@ -21,7 +22,7 @@ class AdminController extends Controller
         $data['facility'] = Room::countActiveFacility();
         $data['testimony'] = Testimony::countActiveTestimony();
 
-        $query = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+        $query = UserMortage::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
         ->where('created_at', '>', Carbon::today()->subDay(6))
         ->groupBy('day_name','day')
         ->orderBy('day')

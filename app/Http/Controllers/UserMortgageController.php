@@ -136,4 +136,26 @@ class UserMortgageController extends Controller
         }
         return redirect()->route('room.index');
     }
+
+    public function userMortgageChart(){
+        $year=\Carbon\Carbon::now()->year;
+        // dd($year);
+        $items=UserMortage::select(\DB::raw("COUNT(*) as count"),\DB::raw("MONTHNAME(created_at) as month_name"),\DB::raw("MONTH(created_at) as month"))
+            ->whereYear('created_at',$year)
+            ->groupBy('month_name','month')
+            ->orderBy('month')
+            ->get();
+        //dd($items);
+            // dd($items);
+        $result=[];
+        $data=[];
+        for($i=1; $i <=12; $i++){
+            $monthName=date('F', mktime(0,0,0,$i,1));
+            $data[$monthName] = 0.0;
+        }
+        foreach($items as $item){
+            $data[$item->month_name] = number_format($item->count,1,'.',',');
+        }
+        return $data;
+    }
 }
