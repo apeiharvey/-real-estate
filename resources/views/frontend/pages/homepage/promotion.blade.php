@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
                     <div class="coll-to-info text-color-white">
-                        <h1>Looking for a dream home?</h1>
+                        <h1>Buy your PP Now! Limited Unit</h1>
                         <p>We can help you realize your dream of a new home</p>
                     </div>
                     <div class="btn-wrapper">
