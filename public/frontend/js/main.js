@@ -284,7 +284,7 @@
             autoplay: true,
             autoplaySpeed: 4000,
             arrows: false,
-            dots: true,
+            dots: false,
             fade: true,
             cssEase: 'linear',
             infinite: true,
@@ -298,7 +298,7 @@
                     breakpoint: 1200,
                     settings: {
                         arrows: false,
-                        dots: true,
+                        dots: false,
                     }
                 }
             ]

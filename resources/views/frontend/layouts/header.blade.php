@@ -1,5 +1,5 @@
 <!-- HEADER AREA START (header-5) -->
-<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent gradient-color-4---">
+<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent gradient-color-2">
     <!-- ltn__header-middle-area start -->
     <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black">
         <div class="container">

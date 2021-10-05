@@ -29,11 +29,9 @@ class FrontendController extends Controller
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
                     ->get();
-        $facilities = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
-                    ->leftJoin('houses','houses.id','rooms.house_id')
+        $facilities = Room::select('rooms.name as room_name','rooms.images')
                     ->where('type','facility')
                     ->where('rooms.status','active')
-                    ->where('houses.status','active')
                     ->get();
         $testimonies = Testimony::select('testimony_name','text','image')
                                   ->where('status','active')

@@ -10,17 +10,8 @@
         </div>
         @if(isset($rooms))
         <div class="row ltn__search-by-place-slider-1-active property slick-arrow-1" id="uptown-state">
-            @if(count($rooms) < 3)
-                @php
-                    $col = 'col-lg-6';
-                @endphp
-            @else
-            @php
-                $col = 'col-lg-4';
-            @endphp
-            @endif
             @foreach($rooms as $val)
-            <div class="{{$col}}">
+            <div class="col">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
                         <img src="{{asset($val->images)}}" alt="{{$val->name}}">
@@ -36,24 +27,14 @@
         @endif
         @if(isset($facilities))
         <div class="row ltn__search-by-place-slider-1-active facilities slick-arrow-1" id="facility">
-            @if(count($facilities) < 3)
-                @php
-                    $col = 'col-lg-6';
-                @endphp
-            @else
-            @php
-                $col = 'col-lg-4';
-            @endphp
-            @endif
             @foreach($facilities as $val)
-            <div class="{{$col}}">
+            <div class="col">
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
-                        <img src="{{asset($val->images)}}" alt="{{$val->name}}">
+                        <img src="{{asset($val->images)}}" alt="{{$val->room_name}}">
                     </div>
                     <div class="search-by-place-info">
-                        <h4>{{$val->house_name}}</h4>
-                        <h6>{{$val->room_name}}</h6>
+                        <h4>{{$val->room_name}}</h4>
                     </div>
                 </div>
             </div>
