@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h1 class="section-title">RISE UP! AND GET A HIGHER QUALITY LIVING</h1>
+                    <h1 class="section-title">SCALE UP YOUR PROFIT WITH TRIPLE BENEFIT</h1>
                 </div>
             </div>
         </div>
