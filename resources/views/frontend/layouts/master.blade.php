@@ -15,6 +15,7 @@
 		<div class="ltn__utilize-overlay"></div>
 		@yield('main-content')
 		@include('frontend.layouts.footer')
+		@include('frontend._includes.modal_simulate_mortage')
 		@include('frontend._includes.modal_user_mortage')
 	</div>
 	@include('frontend.layouts.script')

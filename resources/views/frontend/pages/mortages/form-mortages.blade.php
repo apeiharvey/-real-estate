@@ -107,6 +107,7 @@
     </div>
 </div>
 @push('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // format money
     var format = function(num){
@@ -152,6 +153,7 @@
         e.preventDefault();
         var uid = $('#uid').val();
         var unit_type = $('#unit_type').find(":selected").data('id');
+        var unit_type_name = $('#unit_type').find(":selected").val();
         var payment = $('#payment_method').find(":selected").val();
         // dp in percent
         var dp = $('#down_payment').find(":selected").val();
@@ -162,31 +164,51 @@
         var time_period = $('#time_period').find(":selected").val();
         // calculate
         if(!unit_type){
-            alert('pilih unit type');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Pilih unit type terlebih dahulu',
+                timer: 2000
+            });
             return false;
         }
         if(payment){
             if(payment == 'cbt'){
                 // calculate
-
+                showModal(unit_type_name, payment, price, dp, interest, time_period);
             } else if(payment == 'kpr'){
                 if(!dp){
-                    alert('pilih dp');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Pilih down payment terlebih dahulu',
+                        timer: 2000
+                    });
                     return false;
                 }
                 if(!interest){
-                    alert('pilih interest');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Pilih interest rate terlebih dahulu',
+                        timer: 2000
+                    });
                     return false;
                 }
                 if(!time_period){
-                    alert('pilih time period');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Pilih time period terlebih dahulu',
+                        timer: 2000
+                    });
                     return false;
                 }
                 // calculate
-                
+                showModal(unit_type_name, payment, price, dp, interest, time_period);
             }
         } else {
-            alert('pilih payment');
+            Swal.fire({
+                icon: 'warning',
+                title: 'Pilih payment method terlebih dahulu',
+                timer: 2000
+            });
             return false;
         }
         // check if has user id then save.
@@ -210,5 +232,40 @@
             });
         }
     });
+
+    var showModal = function(unit_type, payment, price, dp=null, interest=null, time_period=null){
+        $('#modal_simulate').modal('show');
+        var text = '';
+        if(unit_type){
+            text += 'You have selected <strong>'+unit_type+'</strong>.<br/>';
+        }
+        if(payment == 'cbt'){
+            text += 'The amount you have to pay are <strong>IDR '+format(price)+'</strong>';
+        } else {
+            var res = calculateMortgage(price, dp, interest, time_period);
+            text += res;
+        }
+        $('#text-result').html(text);
+    }
+
+    var calculateMortgage = function(price, dp, interest, time_period){
+        var down_payment = price*(dp/100);
+        var loan = price - down_payment;
+        var interest_rate = interest/100;
+        var monthly_interest = interest_rate/12;
+        var period = time_period*12;
+        // loan x ( interest rate ((1 + monthly interest)^number payment) ) / (((1+monthly interest)^number payment)-1)
+        var x = 1 + monthly_interest;
+        x = Math.pow(x, period);
+        var y = x - 1;
+        var z = interest_rate * x;
+        z = z / y;
+        var yearly = loan * z;
+        var monthly = Math.ceil(yearly)/12;
+        var res = Math.ceil(yearly) * time_period;
+        var txt = 'with Down Payment of <strong>IDR '+format(down_payment)+'</strong><br/>';
+        txt += 'Assumming an interest rate of '+interest+'%, then the amount you have to pay are<br/><strong>IDR '+format(Math.ceil(monthly))+'</strong> for <strong>'+time_period+'</strong> Years.'
+        return txt;
+    }
 </script>
 @endpush
