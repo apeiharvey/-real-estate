@@ -30,7 +30,7 @@
                         <div class="tab-pane fade {{$show}}" id="{{Str::slug($val->name)}}">
                             <div class="ltn__apartments-tab-content-inner">
                                 <div class="row">
-                                    <div class="col-lg-6 my-auto">
+                                    <!-- <div class="col-lg-4 my-auto">
                                         <div class="apartments-plan-info ltn__secondary-bg text-color-white">
                                             <h2>{{$val->name}}</h2>
                                             <div class="apartments-info-list apartments-info-list-color mt-40">
@@ -47,8 +47,8 @@
                                             {!!$val->description!!}
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 my-auto">
+                                    </div> -->
+                                    <div class="col-lg-12 my-auto">
                                         <div class="row house-list slick-arrow-1">
                                             <div class="apartments-plan-img">
                                                 <img src="{{asset($val->images_thumbnail)}}" alt="{{$val->name}}">

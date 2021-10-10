@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Facility Lists</h6>
-      <a href="{{route('facility.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add Facility"><i class="fas fa-plus"></i> Add Facility</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Promo Lists</h6>
+      <a href="{{route('promo.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add Facility"><i class="fas fa-plus"></i> Add Promo</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -55,8 +55,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('facility.edit',$facility->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('facility.destroy',[$facility->id])}}">
+                        <a href="{{route('promo.edit',$facility->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                    <form method="POST" action="{{route('promo.destroy',[$facility->id])}}">
                       @csrf 
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id="{{$facility->id}}" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
@@ -68,7 +68,7 @@
         </table>
         <span style="float:right">{{$facilities->links()}}</span>
         @else
-          <h6 class="text-center">No Facility found!!! Please create Facility</h6>
+          <h6 class="text-center">No Promo found!!! Please create promo</h6>
         @endif
       </div>
     </div>

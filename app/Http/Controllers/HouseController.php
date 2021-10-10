@@ -58,12 +58,12 @@ class HouseController extends Controller
         // return $slug;
         $status=House::create($data);
         if($status){
-            request()->session()->flash('success','Banner successfully added');
+            request()->session()->flash('success','Property successfully added');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding banner');
+            request()->session()->flash('error','Error occurred while adding property');
         }
-        return redirect()->route('house.index');
+        return redirect()->route('property.index');
     }
 
     /**
@@ -121,7 +121,7 @@ class HouseController extends Controller
         else{
             request()->session()->flash('error','Error occurred while updating house');
         }
-        return redirect()->route('house.index');
+        return redirect()->route('property.index');
     }
 
     /**
@@ -138,8 +138,8 @@ class HouseController extends Controller
             request()->session()->flash('success','House successfully deleted');
         }
         else{
-            request()->session()->flash('error','Error occurred while deleting banner');
+            request()->session()->flash('error','Error occurred while deleting house');
         }
-        return redirect()->route('house.index');
+        return redirect()->route('property.index');
     }
 }

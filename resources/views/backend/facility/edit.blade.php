@@ -5,7 +5,7 @@
 <div class="card">
     <h5 class="card-header">Edit Category</h5>
     <div class="card-body">
-      <form method="post" action="{{route('facility.update',$facility->id)}}">
+      <form method="post" action="{{route('promo.update',$facility->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">

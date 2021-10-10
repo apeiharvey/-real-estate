@@ -13476,6 +13476,11 @@ input.cart-plus-minus-box {
 .apartments-plan-img {
   margin-bottom: 50px; }
 
+.apartments-plan-img img{
+  display:block;
+  margin:auto;
+}
+
 .apartments-info-list > ul {
   padding: 0;
   margin: 0; }

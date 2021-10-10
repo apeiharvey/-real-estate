@@ -52,12 +52,12 @@ class FacilityController extends Controller
         // return $slug;
         $status=Room::create($data);
         if($status){
-            request()->session()->flash('success','Facility successfully added');
+            request()->session()->flash('success','Promo successfully added');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding facility');
+            request()->session()->flash('error','Error occurred while adding promo');
         }
-        return redirect()->route('facility.index');
+        return redirect()->route('promo.index');
     }
 
     /**
@@ -108,7 +108,7 @@ class FacilityController extends Controller
         else{
             request()->session()->flash('error','Error occurred while updating facility');
         }
-        return redirect()->route('facility.index');
+        return redirect()->route('promo.index');
     }
 
     /**
@@ -127,6 +127,6 @@ class FacilityController extends Controller
         else{
             request()->session()->flash('error','Error occurred while deleting facility');
         }
-        return redirect()->route('facility.index');
+        return redirect()->route('promo.index');
     }
 }

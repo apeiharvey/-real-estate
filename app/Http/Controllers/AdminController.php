@@ -17,9 +17,8 @@ class AdminController extends Controller
 {
     public function index(){
         $data = array();
-        $data['house'] = House::countActiveHouse();
-        $data['room'] = Room::countActiveRoom();
-        $data['facility'] = Room::countActiveFacility();
+        $data['property'] = House::countActiveHouse();
+        $data['promo'] = Room::countActiveFacility();
         $data['testimony'] = Testimony::countActiveTestimony();
 
         $query = UserMortage::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))

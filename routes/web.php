@@ -109,12 +109,12 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('banner','BannerController');
     // Cluster
     Route::resource('cluster','ClusterController');
-    // House
-    Route::resource('house','HouseController');
+    // Unit Type
+    Route::resource('unit-type','HouseController');
     // Room
     Route::resource('room','RoomController');
-    // Facility
-    Route::resource('facility','FacilityController');
+    // Promo
+    Route::resource('promo','FacilityController');
     // Testimony
     Route::resource('testimony','TestimonyController');
 

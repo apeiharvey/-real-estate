@@ -3,9 +3,9 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Facility</h5>
+    <h5 class="card-header">Add Promo</h5>
     <div class="card-body">
-      <form method="post" action="{{route('facility.store')}}">
+      <form method="post" action="{{route('promo.store')}}">
         {{csrf_field()}}
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>

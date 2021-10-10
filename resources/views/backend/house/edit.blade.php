@@ -1,11 +1,11 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || House Edit')
+@section('title','HIVE COMMERCIAL || Unit Type Edit')
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Edit House</h5>
+    <h5 class="card-header">Edit Unit Type</h5>
     <div class="card-body">
-      <form method="post" action="{{route('house.update',$house->id)}}">
+      <form method="post" action="{{route('unit-type.update',$house->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">

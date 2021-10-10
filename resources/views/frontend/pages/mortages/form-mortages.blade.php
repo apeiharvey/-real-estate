@@ -264,7 +264,7 @@
         var monthly = Math.ceil(yearly)/12;
         var res = Math.ceil(yearly) * time_period;
         var txt = 'with Down Payment of <strong>IDR '+format(down_payment)+'</strong><br/>';
-        txt += 'Assumming an interest rate of '+interest+'%, then the amount you have to pay are<br/><strong>IDR '+format(Math.ceil(monthly))+'</strong> for <strong>'+time_period+'</strong> Years.'
+        txt += 'Assumming an interest rate of '+interest+'%, then the amount you have to pay are<br/><strong>IDR '+format(Math.ceil(monthly))+'</strong> per month for <strong>'+time_period+'</strong> Years.'
         return txt;
     }
 </script>

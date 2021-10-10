@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || Banner Edit')
+@section('title','HIVE COMMERCIAL || Banner Edit')
 @section('main-content')
 
 <div class="card">
@@ -14,14 +14,6 @@
         @error('title')
         <span class="text-danger">{{$message}}</span>
         @enderror
-        </div>
-
-        <div class="form-group">
-          <label for="inputDesc" class="col-form-label">Description</label>
-          <textarea class="form-control" id="description" name="description">{{$banner->description}}</textarea>
-          @error('description')
-          <span class="text-danger">{{$message}}</span>
-          @enderror
         </div>
 
         <div class="form-group">

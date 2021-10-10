@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title','E-SHOP || House Page')
+@section('title','HIVE COMMERCIAL || Unit Type Page')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -10,7 +10,7 @@
      </div>
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">House List</h6>
-      <a href="{{route('house.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add House</a>
+      <a href="{{route('unit-type.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add House</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -63,8 +63,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('house.edit',$house->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                        <form method="POST" action="{{route('house.destroy',[$house->id])}}">
+                        <a href="{{route('unit-type.edit',$house->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <form method="POST" action="{{route('unit-type.destroy',[$house->id])}}">
                           @csrf 
                           @method('delete')
                               <button class="btn btn-danger btn-sm dltBtn" data-id={{$house->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
@@ -76,7 +76,7 @@
         </table>
         <span style="float:right">{{$houses->links()}}</span>
         @else
-          <h6 class="text-center">No Houses found!!! Please create house</h6>
+          <h6 class="text-center">No Unit Type found!!! Please create unit type</h6>
         @endif
       </div>
     </div>

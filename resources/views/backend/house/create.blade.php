@@ -1,13 +1,13 @@
 @extends('backend.layouts.master')
 
-@section('title','E-SHOP || House Create')
+@section('title','HIVE COMMERCIAL || Unit Type Create')
 
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add House</h5>
+    <h5 class="card-header">Add Unit Type</h5>
     <div class="card-body">
-      <form method="post" action="{{route('house.store')}}">
+      <form method="post" action="{{route('unit-type.store')}}">
         {{csrf_field()}}
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>

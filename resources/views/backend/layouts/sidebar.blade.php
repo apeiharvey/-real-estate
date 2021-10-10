@@ -73,19 +73,19 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#houseCollapse" aria-expanded="true" aria-controls="houseCollapse">
           <i class="fas fa-home"></i>
-          <span>House</span>
+          <span>Unit Type</span>
         </a>
         <div id="houseCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">House Options:</h6>
-            <a class="collapse-item" href="{{route('house.index')}}">House</a>
-            <a class="collapse-item" href="{{route('house.create')}}">Add House</a>
+            <h6 class="collapse-header">Unit Type Options:</h6>
+            <a class="collapse-item" href="{{route('unit-type.index')}}">Unit Type</a>
+            <a class="collapse-item" href="{{route('unit-type.create')}}">Add Unit Type</a>
           </div>
         </div>
     </li>
 
     {{-- Room --}}
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roomCollapse" aria-expanded="true" aria-controls="roomCollapse">
           <i class="fas fa-window-maximize"></i>
           <span>Room</span>
@@ -97,19 +97,19 @@
             <a class="collapse-item" href="{{route('room.create')}}">Add Room</a>
           </div>
         </div>
-    </li>
+    </li> -->
 
-    {{-- Facility --}}
+    {{-- Promo --}}
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facilityCollapse" aria-expanded="true" aria-controls="facilityCollapse">
-          <i class="fas fa-building"></i>
-          <span>Facility</span>
+          <i class="fas fa-percent"></i>
+          <span>Promo</span>
         </a>
         <div id="facilityCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Facility Options:</h6>
-            <a class="collapse-item" href="{{route('facility.index')}}">Facility</a>
-            <a class="collapse-item" href="{{route('facility.create')}}">Add Facility</a>
+            <h6 class="collapse-header">Promo Options:</h6>
+            <a class="collapse-item" href="{{route('promo.index')}}">Promo</a>
+            <a class="collapse-item" href="{{route('promo.create')}}">Add Promo</a>
           </div>
         </div>
     </li>
