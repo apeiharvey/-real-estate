@@ -18,6 +18,14 @@
         </div>
 
         <div class="form-group">
+          <label for="inputUrl" class="col-form-label">Link URL <span class="text-danger">*</span></label>
+        <input id="inputUrl" type="text" name="url" placeholder="Enter Link URL"  value="{{old('url')}}" class="form-control">
+        @error('url')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
+        </div>
+
+        <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">

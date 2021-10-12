@@ -66,12 +66,7 @@ class AdminController extends Controller
         $this->validate($request,[
             'logo'=>'required',
             'photo'=>'required',
-            'address'=>'required|string',
-            'email'=>'required|email',
             'mobile_phone'=>'required|string',
-            'long'=>'numeric|required',
-            'lat'=>'numeric|required',
-            'phone'=>'required|string'
         ]);
         $data=$request->all();
         // return $data;

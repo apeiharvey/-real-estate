@@ -2,9 +2,15 @@
     <div class="ltn__slide-one-active banner slick-slide-arrow-1 slick-slide-dots-1">
         @if(isset($banner) && count($banner) > 0)
             @foreach($banner as $val)
-                <div class="slide-item-img">
+            <div class="slide-item-img">
+                @if(isset($val->url))
+                    <a href="{{$val->url}}" target="_blank">
+                        <img style="width:100%" src="{{asset($val->photo)}}"/>
+                    </a>
+                @else
                     <img style="width:100%" src="{{asset($val->photo)}}"/>
-                </div>
+                @endif
+            </div>
             @endforeach
         @endif
     </div>

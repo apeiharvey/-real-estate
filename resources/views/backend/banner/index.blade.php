@@ -20,7 +20,7 @@
             <tr>
               <th>S.N.</th>
               <th>Title</th>
-              <th>Description</th>
+              <th>Url</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -30,7 +30,7 @@
             <tr>
               <th>S.N.</th>
               <th>Title</th>
-              <th>Description</th>
+              <th>Url</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -41,7 +41,7 @@
                 <tr>
                     <td>{{$banner->id}}</td>
                     <td>{{$banner->title}}</td>
-                    <td>{{$banner->description}}</td>
+                    <td>{{$banner->url}}</td>
                     <td>
                         @if($banner->photo)
                             <img src="{{$banner->photo}}" class="img-fluid zoom" style="max-width:80px" alt="{{$banner->photo}}">

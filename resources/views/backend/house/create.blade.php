@@ -17,13 +17,13 @@
         @enderror
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="inputDesc" class="col-form-label">Description</label>
           <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
 
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Thumbnail <span class="text-danger">*</span></label>
@@ -76,7 +76,7 @@
           @enderror
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="area_building" class="col-form-label">Area Building<span class="text-danger">*</span></label>
           <input id="area_building" type="number" name="area_building" placeholder="Enter Building Area"  value="{{old('area_building')}}" class="form-control">
           @error('area_building')
@@ -114,7 +114,7 @@
           @error('floor')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
         <div class="form-group mb-3">
           <button type="reset" class="btn btn-warning">Reset</button>
            <button class="btn btn-success" type="submit">Submit</button>

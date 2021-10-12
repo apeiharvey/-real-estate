@@ -64,6 +64,8 @@
                                                     array_push($images_detail, $val->images_detail);
                                                     @endphp
                                                 @endif
+                                            @else
+                                                @php $images_detail = array(); @endphp
                                             @endif
                                             @if(isset($images_detail))
                                                 @foreach($images_detail as $val_detail)

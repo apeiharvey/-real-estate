@@ -17,11 +17,12 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        $banner = Banner::select('title','photo','description')
+        $banner = Banner::select('title','photo','description','url')
                         ->where('status','active')
                         ->get();
         $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
                             ->where('status','active')
+                            ->orderBy('id','asc')
                             ->get();
         $rooms = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
                     ->leftJoin('houses','houses.id','rooms.house_id')

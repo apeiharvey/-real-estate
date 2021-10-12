@@ -41,27 +41,27 @@
           @enderror
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="address" class="col-form-label">Address <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="address" required value="{{$data->address}}">
           @error('address')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
-        <div class="form-group">
+        </div> -->
+        <!-- <div class="form-group">
           <label for="email" class="col-form-label">Email <span class="text-danger">*</span></label>
           <input type="email" class="form-control" name="email" required value="{{$data->email}}">
           @error('email')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
-        <div class="form-group">
+        </div>-->
+        <!--<div class="form-group">
           <label for="phone" class="col-form-label">Phone Number <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="phone" required value="{{$data->phone}}">
           @error('phone')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="mobile_phone" class="col-form-label">Mobile Phone <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="mobile_phone" required value="{{$data->mobile_phone}}">
@@ -84,7 +84,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="twitter" class="col-form-label">Twitter</label>
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Twitter URL" name="twitter" value="{{$data->twitter}}">
@@ -96,7 +96,7 @@
           @error('twitter_name')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="phone_4" class="col-form-label">Instagram</label>
           <div class="input-group">
@@ -123,7 +123,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="long" class="col-form-label">Longitude</label>
           <input type="text" class="form-control" name="long" value="{{$data->long}}">
           @error('long')
@@ -136,7 +136,7 @@
           @error('lat')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
 
         <div class="form-group mb-3">
            <button class="btn btn-success" type="submit">Update</button>

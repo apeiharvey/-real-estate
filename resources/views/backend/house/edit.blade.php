@@ -16,13 +16,13 @@
         @enderror
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="inputDesc" class="col-form-label">Description</label>
           <textarea class="form-control" id="description" name="description">{{$house->description}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
 
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Thumbnail <span class="text-danger">*</span></label>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-        <label for="inputPhoto" class="col-form-label">Detail <span class="text-danger">*</span></label>
+        <label for="inputPhoto" class="col-form-label">Detail</label>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm_detail" data-input="images_detail" data-preview="holder" class="btn btn-primary">
@@ -75,7 +75,7 @@
           @enderror
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="area_building" class="col-form-label">Area Building<span class="text-danger">*</span></label>
           <input id="area_building" type="number" name="area_building" placeholder="Enter Building Area"  value="{{$house->area_building}}" class="form-control">
           @error('area_building')
@@ -113,7 +113,7 @@
           @error('floor')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> -->
 
         <div class="form-group mb-3">
            <button class="btn btn-success" type="submit">Update</button>

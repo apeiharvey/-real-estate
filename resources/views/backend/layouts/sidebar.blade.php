@@ -115,7 +115,7 @@
     </li>
 
     {{-- Testimony --}}
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonyCollapse" aria-expanded="true" aria-controls="testimonyCollapse">
           <i class="fas fa-comments"></i>
           <span>Testimony</span>
@@ -127,7 +127,7 @@
             <a class="collapse-item" href="{{route('testimony.create')}}">Add Testimony</a>
           </div>
         </div>
-    </li>
+    </li> -->
 
     <!--Orders -->
     <!-- <li class="nav-item">

@@ -20,7 +20,6 @@
             <tr>
               <th>S.N.</th>
               <th>House Name</th>
-              <th>Desc</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -30,7 +29,6 @@
             <tr>
               <th>S.N.</th>
               <th>House Name</th>
-              <th>Desc</th>
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -41,13 +39,6 @@
                 <tr>
                     <td>{{$house->id}}</td>
                     <td>{{$house->name}}</td>
-                    <td>
-                      <i class="fas fa-building"></i>  : {{$house->area_building}}<br>
-                      <i class="fas fa-arrows-alt"></i>  : {{$house->area_surface}}<br>
-                      <i class="fas fa-bed"></i> : {{$house->bedroom}}<br>
-                      <i class="fas fa-bath"></i> : {{$house->bathroom}}<br>
-                      <i class="fas fa-arrow-up"></i> : {{$house->floor}}<br>
-                    </td>
                     <td>
                         @if($house->images_thumbnail)
                             <img src="{{$house->images_thumbnail}}" class="img-fluid zoom" style="max-width:80px" alt="{{$house->images_thumbnail}}">

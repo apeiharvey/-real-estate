@@ -41,15 +41,8 @@ class HouseController extends Controller
         //dd($request->all());
         $this->validate($request,[
             'name'=>'string|required',
-            'description'=>'string|required',
             'images_thumbnail'=>'string|required',
-            'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
-            'area_building'=>'numeric|min:1',
-            'area_surface'=>'numeric|min:1',
-            'bathroom'=>'numeric|min:1',
-            'bedroom'=>'numeric|min:1',
-            'floor'=>'numeric|min:1',
             'price'=>'numeric|min:1'
         ]);
 
@@ -63,7 +56,7 @@ class HouseController extends Controller
         else{
             request()->session()->flash('error','Error occurred while adding property');
         }
-        return redirect()->route('property.index');
+        return redirect()->route('unit-type.index');
     }
 
     /**
@@ -101,15 +94,8 @@ class HouseController extends Controller
         $house=House::findOrFail($id);
         $this->validate($request,[
             'name'=>'string|required',
-            'description'=>'string|required',
             'images_thumbnail'=>'string|required',
-            'images_detail'=>'string|required',
             'status'=>'required|in:active,inactive',
-            'area_building'=>'numeric|min:1',
-            'area_surface'=>'numeric|min:1',
-            'bathroom'=>'numeric|min:1',
-            'bedroom'=>'numeric|min:1',
-            'floor'=>'numeric|min:1',
             'price'=>'numeric|min:1'
         ]);
         $data=$request->all();
@@ -121,7 +107,7 @@ class HouseController extends Controller
         else{
             request()->session()->flash('error','Error occurred while updating house');
         }
-        return redirect()->route('property.index');
+        return redirect()->route('unit-type.index');
     }
 
     /**

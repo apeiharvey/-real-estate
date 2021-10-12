@@ -13,7 +13,7 @@
 								@endif
 							</div>
 						</div>
-						<p>Nama Website Gallery.</p>
+						<!-- <p>Nama Website Gallery.</p>
 						<div class="footer-address">
 							<ul>
 								<li>
@@ -37,30 +37,28 @@
 									</div>
 								</li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
-				</div>
-				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
 					<div class="footer-widget footer-menu-widget clearfix">
 						<h3 class="footer-title">Contact Us</h3>
 						<div class="footer-menu">
 							<ul>
-								@if(isset($setting) && !empty($setting->email))
+								<!-- @if(isset($setting) && !empty($setting->email))
 								<li>
 									<h4>
 										<i class="fas fa-envelope mr-2"></i>
 										<a target="_blank" href="mailto:{{$setting->email}}">{{$setting->email}}</a>
 									</h4>
 								</li>
-								@endif
-								@if(isset($setting) && !empty($setting->twitter))
+								@endif -->
+								<!-- @if(isset($setting) && !empty($setting->twitter))
 								<li>
 									<h4>
 										<i class="fab fa-twitter mr-2"></i>
 										<a target="_blank" href="{{$setting->twitter}}">{{$setting->twitter_name}}</a>
 									</h4>
 								</li>
-								@endif
+								@endif -->
 								@if(isset($setting) && !empty($setting->facebook))
 								<li>
 									<h4>
@@ -81,7 +79,7 @@
 								<li>
 									<h4>
 										<i class="fab fa-whatsapp mr-2"></i>
-										<a target="_blank" href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual">+{{$setting->mobile_phone}}</a>
+										<a target="_blank" href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual">{{ wordwrap(str_replace('62','0',$setting->mobile_phone),4,"-",true) }}</a>
 									</h4>
 								</li>
 								@endif
@@ -89,7 +87,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
+				<div class="col-xl-5 col-md-5 col-sm-12 col-12">
 					<div class="ltn__google-map-locations-area">
 						<img src="{{asset($setting->photo)}}">
 					</div>
