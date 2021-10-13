@@ -1317,10 +1317,9 @@
 
 /* ltn__header-transparent */
 .ltn__header-transparent {
-    position: absolute;
+    display:block;
     width: 100%;
     z-index: 999;
-    background-color: transparent;
     .top-area-color-white {
         background-color: transparent;
     } 
