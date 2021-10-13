@@ -546,7 +546,7 @@ ol li {
   background: var(--gradient-color-1); }
 
 .gradient-color-2 {
-  background: var(--gradient-color-2); }
+  background: var(--ltn__heading-color) }
 
 .gradient-color-3 {
   background: var(--gradient-color-3); }
@@ -5278,10 +5278,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 /* ltn__header-transparent */
 .ltn__header-transparent {
-  position: absolute;
   width: 100%;
   z-index: 999;
-  background-color: transparent; }
+  display:block; 
+}
   .ltn__header-transparent .top-area-color-white {
     background-color: transparent; }
 
