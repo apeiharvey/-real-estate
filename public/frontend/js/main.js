@@ -283,7 +283,7 @@
         $('.banner').slick({
             autoplay: true,
             autoplaySpeed: 4000,
-            arrows: false,
+            arrows: true,
             dots: false,
             fade: true,
             cssEase: 'linear',

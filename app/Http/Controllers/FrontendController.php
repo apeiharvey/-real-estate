@@ -29,6 +29,7 @@ class FrontendController extends Controller
                     ->where('type','room')
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
+                    ->orderBy('rooms.id','asc')
                     ->get();
         $facilities = Room::select('rooms.name as room_name','rooms.images')
                     ->where('type','facility')
