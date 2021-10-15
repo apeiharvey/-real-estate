@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Nadia Baju Anak || Login Page</title>
+  <title>Hive Commercial || Login Page</title>
   @include('backend.layouts.head')
 
 </head>

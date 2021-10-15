@@ -87,9 +87,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-5 col-md-5 col-sm-12 col-12">
+				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
 					<div class="ltn__google-map-locations-area">
 						<img src="{{asset($setting->photo)}}">
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
+					<div class="ltn__google-map-locations-area">
+						<img src="{{asset($setting->maps2)}}">
 					</div>
 				</div>
 			</div>

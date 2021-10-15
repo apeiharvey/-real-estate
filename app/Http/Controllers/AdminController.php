@@ -67,6 +67,8 @@ class AdminController extends Controller
             'logo'=>'required',
             'photo'=>'required',
             'mobile_phone'=>'required|string',
+            'photo'=>'required|string',
+            'maps2'=>'required|string'
         ]);
         $data=$request->all();
         // return $data;

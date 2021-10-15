@@ -41,6 +41,21 @@
           @enderror
         </div>
 
+        <div class="form-group">
+          <label for="inputMaps2" class="col-form-label">Maps 2<span class="text-danger">*</span></label>
+          <div class="input-group">
+              <span class="input-group-btn">
+                  <a id="lfm3" data-input="inputMaps2" data-preview="holder_maps2" class="btn btn-primary">
+                  <i class="fa fa-picture-o"></i> Choose
+                  </a>
+              </span>
+          <input id="inputMaps2" class="form-control" type="text" name="maps2" value="{{$data->maps2}}">
+        </div>
+        <div id="holder_maps2" style="margin-top:15px;max-height:100px;"></div>
+          @error('maps2')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
         <!-- <div class="form-group">
           <label for="address" class="col-form-label">Address <span class="text-danger">*</span></label>
           <input type="text" class="form-control" name="address" required value="{{$data->address}}">
@@ -160,6 +175,7 @@
 <script>
     $('#lfm1').filemanager('images');
     $('#lfm2').filemanager('images');
+    $('#lfm3').filemanager('images');
     $('#lfm_file').filemanager('files');
     $(document).ready(function() {
     $('#summary').summernote({

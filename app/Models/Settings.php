@@ -22,6 +22,7 @@ class Settings extends Model
         'twitter_name',
         'facebook_name',
         'instagram_name',
-        'brochure'
+        'brochure',
+        'maps2'
     ];
 }
