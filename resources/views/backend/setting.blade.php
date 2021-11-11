@@ -85,6 +85,13 @@
           @enderror
         </div>
         <div class="form-group">
+          <label for="promotion_title" class="col-form-label">Promotion Title <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" name="promotion_title" required value="{{$data->promotion_title}}">
+          @error('promotion_title')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Brochure <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">

@@ -23,6 +23,7 @@ class Settings extends Model
         'facebook_name',
         'instagram_name',
         'brochure',
-        'maps2'
+        'maps2',
+        'promotion_title'
     ];
 }
