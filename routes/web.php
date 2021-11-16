@@ -32,6 +32,8 @@ Route::post('/submit-mortgage','FrontendController@submitMortgage')->name('submi
 Route::get('/simulate-mortgage','FrontendController@simulateMortgage')->name('simulate.mortgage');
 Route::post('/save-user-mortgage','FrontendController@saveUserMortgage')->name('save.mortgage');
 
+Route::post('/ajax/{slug}','FrontendController@ajax')->name('ajax.post');
+
 // Frontend Routes
 Route::get('/home', 'FrontendController@index');
 Route::get('/about-us','FrontendController@aboutUs')->name('about-us');
