@@ -56,10 +56,6 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
-    'website_key' => env('WEBSITE_KEY', 'uptown'),
-    
-    'app_asset_url' => env('APP_ASSET_URL', null),
-
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

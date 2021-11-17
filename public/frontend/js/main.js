@@ -280,31 +280,31 @@
         /* --------------------------------------------------------
             # banner
         --------------------------------------------------------- */
-        // $('.banner').slick({
-        //     autoplay: true,
-        //     autoplaySpeed: 4000,
-        //     arrows: true,
-        //     dots: false,
-        //     fade: true,
-        //     cssEase: 'linear',
-        //     infinite: true,
-        //     speed: 300,
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-        //     nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-        //     responsive: [
-        //         {
-        //             breakpoint: 1200,
-        //             settings: {
-        //                 arrows: false,
-        //                 dots: false,
-        //             }
-        //         }
-        //     ]
-        // }).on('afterChange', function(){
-        //     new WOW().init();
-        // });
+        $('.banner').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            arrows: true,
+            dots: false,
+            fade: true,
+            cssEase: 'linear',
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false,
+                        dots: false,
+                    }
+                }
+            ]
+        }).on('afterChange', function(){
+            new WOW().init();
+        });
         /* --------------------------------------------------------
             # property slider
         --------------------------------------------------------- */
@@ -454,60 +454,6 @@
                         dots: true,
                         slidesToShow: 1,
                         slidesToScroll: 1
-                    }
-                }
-            ]
-        });
-        
-        
-        /* --------------------------------------------------------
-            # Gallery List
-        --------------------------------------------------------- */
-        $('.ltn__image-slider-4-active').slick({
-            rtl: false,
-            arrows: true,
-            dots: false,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            centerMode: true,
-            centerPadding: '0px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
                     }
                 }
             ]
