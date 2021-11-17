@@ -5,8 +5,9 @@ use Illuminate\Http\Request;
 
 use App\Models\UserMortage;
 use App\Models\House;
+use App\Models\Room;
 use App\Models\Banner;
-use App\Models\Gallery;
+use App\Models\Testimony;
 use Response;
 
 class FrontendController extends Controller
@@ -25,12 +26,23 @@ class FrontendController extends Controller
                             ->where('status','active')
                             ->orderBy('id','asc')
                             ->get();
-        $gallery = Gallery::select('title','photo','description','url')
-                          ->where('status','active')
-                          ->where('website_key', config('app.website_key'))
-                          ->get();
+        $rooms = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
+                    ->leftJoin('houses','houses.id','rooms.house_id')
+                    ->where('type','room')
+                    ->where('rooms.status','active')
+                    ->where('houses.status','active')
+                    ->orderBy('rooms.id','asc')
+                    ->get();
+        $facilities = Room::select('rooms.name as room_name','rooms.images')
+                    ->where('type','facility')
+                    ->where('rooms.status','active')
+                    ->orderBy('id','asc')
+                    ->get();
+        $testimonies = Testimony::select('testimony_name','text','image')
+                                  ->where('status','active')
+                                  ->get();
         $setting = $this->setting;
-        return view('frontend.index', compact(['banner', 'unit_type', 'gallery', 'setting']));
+        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies', 'setting']));
     }
 
     public function submitMortgage(Request $request){
