@@ -1,88 +1,100 @@
-<div class="ltn__apartments-plan-area pt-115" id="unit-type">
+<div class="ltn__about-us-area pb-90 " id="unit-type">
     <div class="container">
         <div class="row">
-            @if($unit_type)
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h1 class="section-title">Unit Type</h1>
-                </div>
-                <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center">
-                    <div class="nav">
-                        @php $counter=0; $show='';@endphp
-                        @foreach($unit_type as $val)
-                            @if($counter == 0)
-                                @php $show = 'active show'; $counter++; @endphp
-                            @else
-                            @php $show = ''; @endphp
-                            @endif
-                            <a class="{{$show}}" data-bs-toggle="tab" href="#{{Str::slug($val->name)}}">{{$val->name}}</a>
-                        @endforeach
+                    <div class="btn-wrapper">
+                        <a href="{{config('app.app_asset_url').'/'.$setting->brochure}}" class="btn btn-effect-3 btn-orange text-white" download>Get Brochure</a>
                     </div>
                 </div>
-                <div class="tab-content">
-                    @php $counter=0; $show=''; @endphp
-                    @foreach($unit_type as $val)
-                        @if($counter == 0)
-                            @php $show = 'active show'; $counter++; @endphp
-                        @else
-                        @php $show = ''; @endphp
-                        @endif
-                        <div class="tab-pane fade {{$show}}" id="{{Str::slug($val->name)}}">
-                            <div class="ltn__apartments-tab-content-inner">
-                                <div class="row">
-                                    <!-- <div class="col-lg-4 my-auto">
-                                        <div class="apartments-plan-info ltn__secondary-bg text-color-white">
-                                            <h2>{{$val->name}}</h2>
-                                            <div class="apartments-info-list apartments-info-list-color mt-40">
-                                                <ul>
-                                                    <li><label>Land Area</label><span>{{$val->area_surface}} m<sup>2</sup></span></li>
-                                                    <li><label>Building Area</label><span>{{$val->area_building}} m<sup>2</sup></span></li>
-                                                    <li><label>Floor</label> <span>{{$val->floor}} Floor</span></li>
-                                                    <li><label>Bathroom</label> <span>{{$val->bathroom}} Bathroom</span></li>
-                                                    <li><label>Bedroom</label> <span>{{$val->bedroom}} Bedroom</span></li>
-                                                </ul>
-                                            </div>
-                                            <br/>
-                                            @if(isset($val->description))
-                                            {!!$val->description!!}
-                                            @endif
-                                        </div>
-                                    </div> -->
-                                    <div class="col-lg-12 my-auto">
-                                        <div class="row house-list slick-arrow-1">
-                                            <div class="apartments-plan-img">
-                                                <img src="{{asset($val->images_thumbnail)}}" alt="{{$val->name}}">
-                                            </div>
-                                            @if(isset($val->images_detail))
-                                                @if(strpos($val->images_detail,','))
-                                                    @php
-                                                    $images_detail = explode(',', $val->images_detail);
-                                                    @endphp
-                                                @else
-                                                    @php
-                                                    $images_detail = array();
-                                                    array_push($images_detail, $val->images_detail);
-                                                    @endphp
-                                                @endif
-                                            @else
-                                                @php $images_detail = array(); @endphp
-                                            @endif
-                                            @if(isset($images_detail))
-                                                @foreach($images_detail as $val_detail)
-                                                    <div class="apartments-plan-img">
-                                                        <img src="{{asset($val_detail)}}" alt="{{$val->name}}">
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
+            </div>
+        </div>
+        <div class="section-title-area ltn__section-title-2--- text-center">
+            <h1 class="section-title">Unit Type</h1>
+        </div>
+        <div class="row">
+            @if($unit_type)
+                @php $counter=0; @endphp
+                @foreach($unit_type as $val)
+                    @if($counter%2 == 0)
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-img-wrap about-img-left">
+                            <img src="{{config('app.app_asset_url').'/frontend/img/others/9.png'}}" alt="About Us Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-info-wrap">
+                            <div class="section-title-area ltn__section-title-2---">
+                                <h1 class="section-title">{{$val->name}}</h1>
+                                <a href="#" title="See More {{$val->name}}" data-bs-toggle="modal" data-bs-target="#quick_view_modal" data-unit="{{$val->id}}">See More..</a>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
+                    </div>
+                    @else
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-info-wrap">
+                            <div class="section-title-area ltn__section-title-2---">
+                                <h1 class="section-title">{{$val->name}}</h1>
+                                <a href="#" title="See More {{$val->name}}" data-bs-toggle="modal" data-bs-target="#quick_view_modal" data-unit="{{$val->id}}">See More..</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-img-wrap about-img-left">
+                            <img src="{{config('app.app_asset_url').'/frontend/img/others/9.png'}}" alt="About Us Image">
+                        </div>
+                    </div>
+                    @endif
+                    @php $counter++ @endphp
+                @endforeach
             @endif
         </div>
     </div>
 </div>
+@push('scripts')
+<script>
+    $('.modal-slick').slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    });
+    
+    var myModalEl = document.getElementById('quick_view_modal');
+    myModalEl.addEventListener('show.bs.modal', function (event) {
+        // do something...
+        $('.modal-slick').slick('slickRemove');
+        html = '';
+        unit_id = event.relatedTarget.attributes['data-unit'].value;
+        data = {
+            '_token': "{{csrf_token()}}",
+            'unit': unit_id
+        }
+        $.ajax({
+            type: 'post',
+            data: data,
+            url: '{{route("ajax.post",["slug" => "get_unit_images"])}}',
+            success: function( response ) {
+                console.log(response)
+                if(response.is_ok == true){
+                    $.each(response.data, function(idx, val){
+                        html += '<div class="slide-item-img">';
+                        html += '<img src="'+val+'"></div>';
+                    });
+                    $('.modal-slick').slick('slickAdd', html);
+                }
+            }
+        });
+        // for(i=0; i<3; i++){
+        //     html += '<div class="slide-item-img">'
+        //     html += '<img src="'+asset_url+'frontend/img/others/9.png" alt="#"></div>';
+        // }
+        // $('.modal-slick').slick('slickAdd', html);
+    });
+
+</script>
+@endpush

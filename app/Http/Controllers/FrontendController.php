@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 
 use App\Models\UserMortage;
 use App\Models\House;
-use App\Models\Room;
 use App\Models\Banner;
-use App\Models\Testimony;
+use App\Models\Gallery;
+use Response;
 
 class FrontendController extends Controller
 {
@@ -17,30 +17,20 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        $banner = Banner::select('title','photo','description','url')
+        $banner = Banner::select('title','photo','description','url','type')
+                        ->where('website_key', config('app.website_key'))
                         ->where('status','active')
                         ->get();
-        $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
+        $unit_type = House::select('id','name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
                             ->where('status','active')
                             ->orderBy('id','asc')
                             ->get();
-        $rooms = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
-                    ->leftJoin('houses','houses.id','rooms.house_id')
-                    ->where('type','room')
-                    ->where('rooms.status','active')
-                    ->where('houses.status','active')
-                    ->orderBy('rooms.id','asc')
-                    ->get();
-        $facilities = Room::select('rooms.name as room_name','rooms.images')
-                    ->where('type','facility')
-                    ->where('rooms.status','active')
-                    ->orderBy('id','asc')
-                    ->get();
-        $testimonies = Testimony::select('testimony_name','text','image')
-                                  ->where('status','active')
-                                  ->get();
+        $gallery = Gallery::select('title','photo','description','url')
+                          ->where('status','active')
+                          ->where('website_key', config('app.website_key'))
+                          ->get();
         $setting = $this->setting;
-        return view('frontend.index', compact(['banner', 'unit_type', 'rooms', 'facilities','testimonies', 'setting']));
+        return view('frontend.index', compact(['banner', 'unit_type', 'gallery', 'setting']));
     }
 
     public function submitMortgage(Request $request){
@@ -66,6 +56,51 @@ class FrontendController extends Controller
         $user_mortgage->time_period = $request->time_period;
         $user_mortgage->save();
         return $user_mortgage->id;
+    }
+
+    public function ajax(Request $request, $slug){
+        if($request->ajax()){
+            $result = $this->$slug($request);
+            return response()->json($result);
+        } else {
+            $message = [
+                'is_ok' => false,
+                'message' => 'invalid_request'
+            ];
+            return response()->json($message);
+        }
+    }
+
+    private function get_unit_images($request){
+        if(!isset($request->unit)){
+            $message = [
+                'is_ok' => false,
+                'message' => 'invalid_request'
+            ];
+            return $message;
+        }
+        $unit_type = House::find($request->unit)
+                          ->select('images_detail')
+                          ->where('status','active')
+                        //   ->where('website_key', config('app.website_key'))
+                          ->first();
+        if($unit_type){
+            if(str_contains($unit_type->images_detail, ',')){
+                $expld = explode(',', $unit_type->images_detail);
+                $unit_type = array();
+                foreach($expld as $val){
+                    array_push($unit_type, config('app.app_asset_url').$val);
+                }
+            } else {
+                $unit_type = [$unit_type->images_detail];
+            }
+        }
+        $message = [
+            'is_ok' => true,
+            'message' => 'success',
+            'data' => $unit_type
+        ];
+        return $message;
     }
 
     public function aboutUs(){

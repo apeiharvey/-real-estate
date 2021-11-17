@@ -38,13 +38,15 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
-        ]);
         $data=$request->all();
+        $validate = array(
+            'title'=>'string|required|max:50',
+            'status'=>'required|in:active,inactive',
+        );
+        if($data['type'] == 'image') $validate['photo'] = 'string|required';
+
+        $this->validate($request,$validate);
+
         $slug=Str::slug($request->title);
         $count=Banner::where('slug',$slug)->count();
         if($count>0){
@@ -94,13 +96,16 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $banner=Banner::findOrFail($id);
-        $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
-        ]);
         $data=$request->all();
+        $validate = array(
+            'title'=>'string|required|max:50',
+            'status'=>'required|in:active,inactive',
+        );
+        if($data['type'] == 'image') $validate['photo'] = 'string|required';
+
+        $banner=Banner::findOrFail($id);
+        $this->validate($request,$validate);
+        
         // $slug=Str::slug($request->title);
         // $count=Banner::where('slug',$slug)->count();
         // if($count>0){

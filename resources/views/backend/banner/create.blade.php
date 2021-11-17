@@ -9,6 +9,18 @@
     <div class="card-body">
       <form method="post" action="{{route('banner.store')}}">
         {{csrf_field()}}
+
+        <div class="form-group">
+          <label for="status" class="col-form-label">Banner Type <span class="text-danger">*</span></label>
+          <select id="banner-type" name="type" class="form-control">
+              <option value="image">Image</option>
+              <option value="video">Video</option>
+          </select>
+          @error('type')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
         <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
@@ -26,7 +38,7 @@
         </div>
 
         <div class="form-group">
-        <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+        <label for="inputPhoto" class="col-form-label">Photo <span id="photo-required" class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -71,7 +83,11 @@
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
-      
+      $('#banner-type').on('change',function(){
+        var type = $(this).val();
+        if(type == 'video'){ $('#photo-required').addClass('d-none'); }
+        else{ $('#photo-required').removeClass('d-none'); }
+      })
     });
 </script>
 @endpush
