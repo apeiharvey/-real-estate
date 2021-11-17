@@ -27,6 +27,18 @@
     .flx {
         display: flex;
     }
+    .video-container {
+    position: relative;
+    padding-bottom: 50%; /* 16:9 */
+    height: 0;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 @stack('styles')

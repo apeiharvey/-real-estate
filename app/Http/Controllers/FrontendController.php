@@ -17,7 +17,7 @@ class FrontendController extends Controller
     }
 
     public function home(){
-        $banner = Banner::select('title','photo','description','url')
+        $banner = Banner::select('title','photo','description','url','type')
                         ->where('status','active')
                         ->get();
         $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
