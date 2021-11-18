@@ -11,7 +11,7 @@
                         {{-- <img style="width:100%" src="{{ENV('APP_ASSET_URL').$val->photo}}" title="{{$val->description}}"/> --}}
                         @elseif($val->type == 'video')
                         <div class="item youtube-sound">
-                            <iframe class="embed-player" style="width:100%; height: 100%" src="{{$val->url.'?enablejsapi=1'}}" title="{{$val->description}}" frameborder="0" allow="autoplay;" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
+                            <iframe class="embed-player" style="width:100%; height:450px" src="{{$val->url.'?autoplay=1&enablejsapi=1&mute=1'}}"></iframe>
                         </div>
                         @endif
                     @else
@@ -23,6 +23,82 @@
     </div>
 </div>
 @push('scripts')
+<script>
+    function onYouTubeIframeAPIReady() {
+        let section = {
+            onPlayerReady: (event) => {
+                event.target.playVideo();
+                event.target.mute();
+            },
+            init: () => {
+                let ytPlayers = [];
+                let $homeBannerSlide = $(".banner");
+
+                $homeBannerSlide.slick({
+                    lazyLoad: 'ondemand',
+                    autoplaySpeed: 5000,
+                    slidesToScroll: 1,
+                    dots: false,
+                    dotsClass: "home-banner-dots",
+                    fade: true,
+                    autoplay: true,
+                    focusOnSelect: true,
+                    pauseOnDotsHover: true,
+                    pauseOnHover: true,
+                    pauseOnFocus: true,
+                    arrows: true,
+                    prevArrow: "#btn-prev-home-banner",
+                    nextArrow: "#btn-next-home-banner",
+                });
+
+                $homeBannerSlide.on(
+                    "beforeChange",
+                    function (event, slick, currentSlide, nextSlide) {
+                        console.log(event, slick, currentSlide, nextSlide);
+                        if ($(`#yt-${nextSlide}`).length == 1) {
+                            if (ytPlayers[nextSlide] == null) {
+                                let videoId = $(`#yt-${nextSlide}`).attr(
+                                    "data-ytid"
+                                );
+
+                                player = new YT.Player(`yt-${nextSlide}`, {
+                                    videoId,
+                                    width: "100%",
+                                    height: "100%",
+                                    playerVars: {
+                                        loop: 1,
+                                        rel: 0,
+                                    },
+                                    events: {
+                                        onReady: section.onPlayerReady,
+                                    },
+                                });
+
+                                ytPlayers[nextSlide] = player;
+                            } else {
+                                let state = ytPlayers[nextSlide].getPlayerState();
+
+                                if (state == 2) {
+                                    ytPlayers[nextSlide].playVideo();
+                                }
+                            }
+                        }
+
+                        if ($(`#yt-${currentSlide}`).length == 1) {
+                            let state = ytPlayers[currentSlide].getPlayerState();
+
+                            if (state == 1) {
+                                ytPlayers[currentSlide].pauseVideo();
+                            }
+                        }
+                    }
+                );
+            },
+        };
+
+        section.init();
+    }
+</script>
 {{-- <script>
     var slideWrapper = $(".banner"),
         iframes = slideWrapper.find('.embed-player'),
