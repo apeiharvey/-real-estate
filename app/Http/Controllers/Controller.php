@@ -15,7 +15,7 @@ class Controller extends BaseController
 
     public function __construct(){
         $this->setting = Settings::
-                        where('website_key', config('app.website_key'))
-                        ->first();
+                        // where('website_key', config('app.website_key'))
+                        first();
     }
 }
