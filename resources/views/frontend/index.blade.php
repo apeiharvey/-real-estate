@@ -1,8 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title','Uptown Hive Commercial')
 @section('main-content')
-    {{-- @include('frontend.pages.homepage.banner-slider') --}}
-    @include('frontend.pages.homepage.banner-video')
+    @include('frontend.pages.homepage.banner-slider')
 
     @include('frontend.pages.homepage.gallery-slider')
 

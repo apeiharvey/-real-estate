@@ -14,6 +14,8 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        $this->setting = Settings::first();
+        $this->setting = Settings::
+                        where('website_key', config('app.website_key'))
+                        ->first();
     }
 }

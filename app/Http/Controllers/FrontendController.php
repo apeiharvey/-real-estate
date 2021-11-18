@@ -23,6 +23,7 @@ class FrontendController extends Controller
                         ->get();
         $unit_type = House::select('id','name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
                             ->where('status','active')
+                            // ->where('website_key', config('app.website_key'))
                             ->orderBy('id','asc')
                             ->get();
         $gallery = Gallery::select('title','photo','description','url')
@@ -38,13 +39,17 @@ class FrontendController extends Controller
         $user->name = $request->user_name;
         $user->email = $request->user_email;
         $user->phone_number = $request->user_phone;
+        $user->website_key = config('app.website_key');
         $user->save();
         $uid = $user->id;
         return redirect()->route('simulate.mortgage',['uid' => $uid]);
     }
 
     public function simulateMortgage(Request $request){
-        $unit_type = House::select('id','name','price')->where('status','active')->get();
+        $unit_type = House::select('id','name','price')
+                          ->where('status','active')
+                          // ->where('website_key', config('app.website_key'))
+                          ->get();
         $setting = $this->setting;
         return view('frontend.simulate-mortages', compact(['unit_type', 'setting']));
     }
