@@ -10,6 +10,7 @@
 <!-- preloader area end -->
 
 <!-- All JS Plugins -->
+<script type="text/javascript" src="https://www.youtube.com/player_api"></script>
 <script src="{{asset('frontend/js/plugins.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('frontend/js/main.js')}}"></script>
