@@ -39,6 +39,9 @@
         width: 100%;
         height: 100%;
     }
+    .slick-slide-arrow-1 .slick-arrow{
+        background:transparent;
+    }
 </style>
 
 @stack('styles')
