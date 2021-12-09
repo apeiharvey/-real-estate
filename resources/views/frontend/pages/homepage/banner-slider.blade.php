@@ -1,3 +1,21 @@
+@push('styles')
+<style>
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height 0;
+}
+    
+.iframe-container iframe{
+    position: absolute;
+    top: 0:
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+@endpush
 <div class="ltn__slider-area ltn__slider-3">
     <div class="ltn__slide-one-active banner slick-slide-arrow-1 slick-slide-dots-1">
         @if(isset($banner) && count($banner) > 0)
@@ -7,12 +25,12 @@
                     @if(isset($val->url))
                         @if($val->type == 'image')
                         <a href="{{$val->url}}" target="_blank">
-                            <img style="width:100%" src="{{asset($val->photo)}}"  title="{{$val->description}}"/>
+                            <img style="width:100%;" src="{{asset($val->photo)}}"  title="{{$val->description}}"/>
                         </a>
                         {{-- <img style="width:100%" src="{{ENV('APP_ASSET_URL').$val->photo}}" title="{{$val->description}}"/> --}}
                         @elseif($val->type == 'video')
-                        <div class="item youtube-sound">
-                            <div class="embed-player" id="vid-{{$counter}}" data-vid="{{$val->url}}" style="width:100%; height:450px"></div>
+                        <div class="iframe-container item youtube-sound">
+                            <div class="embed-player" id="vid-{{$counter}}" data-vid="{{$val->url}}"></div>
                         </div>
                         @endif
                     @else
