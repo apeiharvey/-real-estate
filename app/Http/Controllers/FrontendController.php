@@ -17,11 +17,14 @@ class FrontendController extends Controller
     }
 
     public function home(){
+        $website_key = config()['app']['website_key'];
         $banner = Banner::select('title','photo','description','url','type')
                         ->where('status','active')
+                        ->where('website_key',$website_key)
                         ->get();
         $unit_type = House::select('name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
                             ->where('status','active')
+                            ->where('website_key',$website_key)
                             ->orderBy('id','asc')
                             ->get();
         $rooms = Room::select('houses.name as house_name','rooms.name as room_name','rooms.images')
@@ -29,11 +32,13 @@ class FrontendController extends Controller
                     ->where('type','room')
                     ->where('rooms.status','active')
                     ->where('houses.status','active')
+                    ->where('houses.website_key',$website_key)
                     ->orderBy('rooms.id','asc')
                     ->get();
         $facilities = Room::select('rooms.name as room_name','rooms.images')
                     ->where('type','facility')
                     ->where('rooms.status','active')
+                    ->where('rooms.website_key',$website_key)
                     ->orderBy('id','asc')
                     ->get();
         $testimonies = Testimony::select('testimony_name','text','image')
@@ -44,17 +49,23 @@ class FrontendController extends Controller
     }
 
     public function submitMortgage(Request $request){
+        $website_key = config()['app']['website_key'];
         $user = new UserMortage;
         $user->name = $request->user_name;
         $user->email = $request->user_email;
         $user->phone_number = $request->user_phone;
+        $user->website_key = $website_key;
         $user->save();
         $uid = $user->id;
         return redirect()->route('simulate.mortgage',['uid' => $uid]);
     }
 
     public function simulateMortgage(Request $request){
-        $unit_type = House::select('id','name','price')->where('status','active')->get();
+        $website_key = config()['app']['website_key'];
+        $unit_type = House::select('id','name','price')
+            ->where('status','active')
+            ->where('website_key',$website_key)
+            ->get();
         $setting = $this->setting;
         return view('frontend.simulate-mortages', compact(['unit_type', 'setting']));
     }
