@@ -159,6 +159,9 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     // Password Change
     Route::get('change-password', 'AdminController@changePassword')->name('change.password.form');
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
+
+    Route::post('website-key/{id}','WebsiteKeyController@update')->name('website-key.update');
+
 });
 
 // User section start
@@ -182,7 +185,6 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
     Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
     Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
-
     // Password Change
     //Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
     //Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');

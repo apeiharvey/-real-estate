@@ -13,16 +13,20 @@ use App\Rules\MatchOldPassword;
 use Hash;
 use Carbon\Carbon;
 use Spatie\Activitylog\Models\Activity;
+use Session;
+
 class AdminController extends Controller
 {
     public function index(){
         $data = array();
         $data['property'] = House::countActiveHouse();
         $data['promo'] = Room::countActiveFacility();
-        $data['testimony'] = Testimony::countActiveTestimony();
+        $data['website_key'] = $this->website_key;
+        $website_key = Session::get('website_key');
 
         $query = UserMortage::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
         ->where('created_at', '>', Carbon::today()->subDay(6))
+        ->where('website_key',$website_key)
         ->groupBy('day_name','day')
         ->orderBy('day')
         ->get();
@@ -57,7 +61,7 @@ class AdminController extends Controller
     }
 
     public function settings(){
-        $data=Settings::first();
+        $data=Settings::where('website_key',Session::get('website_key'))->first();
         return view('backend.setting')->with('data',$data);
     }
 
@@ -72,8 +76,9 @@ class AdminController extends Controller
             'promotion_title'
         ]);
         $data=$request->all();
+        $website_key = Session::get('website_key');
         // return $data;
-        $settings=Settings::first();
+        $settings=Settings::where('website_key',$website_key)->first();
         // return $settings;
         $status=$settings->fill($data)->save();
         if($status){

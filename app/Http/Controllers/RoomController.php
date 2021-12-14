@@ -16,12 +16,14 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms=Room::select('rooms.id','rooms.images','rooms.status','houses.name as house_name','rooms.name as room_name')
+        $data['website_key'] = $this->website_key;
+        $data['rooms'] =Room::select('rooms.id','rooms.images','rooms.status','houses.name as house_name','rooms.name as room_name')
         ->leftJoin('houses','houses.id','=','rooms.house_id')
         ->where('type','room')
+        ->where('website_key',Session::get('website_key'))
         ->orderBy('id','DESC')
         ->paginate(10);
-        return view('backend.room.index')->with('rooms',$rooms);
+        return view('backend.room.index',$data);
     }
 
     /**
@@ -32,7 +34,8 @@ class RoomController extends Controller
     public function create()
     {
         $data = array();
-        return view('backend.room.create');
+        $data['website_key'] = $this->website_key;
+        return view('backend.room.create',$data);
     }
 
     /**
@@ -54,6 +57,7 @@ class RoomController extends Controller
         $data=$request->all();
         $data['created_by'] = Auth::user()->id;
         $data['type'] = 'room';
+        $data['website_key'] = Session::get('website_key');
         // return $slug;
         $status=Room::create($data);
         if($status){
@@ -86,7 +90,8 @@ class RoomController extends Controller
     {
         $data=array();
         $data['room']=Room::findOrFail($id);
-        $data['houses']=House::get();
+        $data['houses']=House::where('website_key',Session::get('website_key'))->get();
+        $data['website_key'] = $this->website_key;
         return view('backend.room.edit',$data);
     }
 
@@ -108,6 +113,7 @@ class RoomController extends Controller
         ]);
         $data=$request->all();
         $data['updated_by'] = Auth::user()->id;
+        $data['website_key'] = Session::get('website_key');
         $status=$query->fill($data)->save();
         if($status){
             request()->session()->flash('success','Room successfully updated');

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use Illuminate\Support\Str;
 use Auth;
+use Session;
+
 class FacilityController extends Controller
 {
     /**
@@ -15,10 +17,12 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        $facilities=Room::where('type','facility')
+        $data['website_key'] = $this->website_key;
+        $data['facilities'] =Room::where('type','facility')
+        ->where('website_key',Session::get('website_key'))
         ->orderBy('id','DESC')
         ->paginate(10);
-        return view('backend.facility.index')->with('facilities',$facilities);
+        return view('backend.facility.index',$data);
     }
 
     /**
@@ -28,7 +32,8 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        return view('backend.facility.create');
+        $data['website_key'] = $this->website_key;
+        return view('backend.facility.create',$data);
     }
 
     /**
@@ -49,6 +54,7 @@ class FacilityController extends Controller
         $data=$request->all();
         $data['created_by'] = Auth::user()->id;
         $data['type'] = 'facility';
+        $data['website_key'] = Session::get('website_key');
         // return $slug;
         $status=Room::create($data);
         if($status){
@@ -81,6 +87,7 @@ class FacilityController extends Controller
     {
         $data=array();
         $data['facility']=Room::findOrFail($id);
+        $data['website_key'] = $this->website_key;
         return view('backend.facility.edit',$data);
     }
 
@@ -101,6 +108,7 @@ class FacilityController extends Controller
         ]);
         $data=$request->all();
         $data['updated_by'] = Auth::user()->id;
+        $data['website_key'] = Session::get('website_key');
         $status=$query->fill($data)->save();
         if($status){
             request()->session()->flash('success','Facility successfully updated');

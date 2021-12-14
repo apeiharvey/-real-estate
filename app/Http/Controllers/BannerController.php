@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\House;
 use Illuminate\Support\Str;
+use Session;
+
 class BannerController extends Controller
 {
     /**
@@ -16,8 +18,10 @@ class BannerController extends Controller
     public function index()
 
     {
-        $banner=Banner::orderBy('id','DESC')->paginate(10);
-        return view('backend.banner.index')->with('banners',$banner);
+        $website_key = Session::get('website_key');
+        $data['website_key'] = $this->website_key;
+        $data['banners'] =Banner::where('website_key',$website_key)->orderBy('id','DESC')->paginate(10);
+        return view('backend.banner.index',$data);
     }
 
     /**
@@ -27,7 +31,8 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('backend.banner.create');
+        $data['website_key'] = $this->website_key;
+        return view('backend.banner.create',$data);
     }
 
     /**
@@ -53,6 +58,7 @@ class BannerController extends Controller
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
         $data['slug']=$slug;
+        $data['website_key'] = Session::get('website_key');
         // return $slug;
         $status=Banner::create($data);
         if($status){
@@ -83,8 +89,9 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $banner=Banner::findOrFail($id);
-        return view('backend.banner.edit')->with('banner',$banner);
+        $data['website_key'] = $this->website_key;
+        $data['banner'] =Banner::findOrFail($id);
+        return view('backend.banner.edit',$data);
     }
 
     /**
@@ -105,7 +112,8 @@ class BannerController extends Controller
 
         $banner=Banner::findOrFail($id);
         $this->validate($request,$validate);
-        
+        $data['website_key'] = Session::get('website_key');
+
         // $slug=Str::slug($request->title);
         // $count=Banner::where('slug',$slug)->count();
         // if($count>0){

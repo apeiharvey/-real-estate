@@ -62,4 +62,16 @@
     setTimeout(function(){
       $('.alert').slideUp();
     },4000);
+    $('#select-website-key').on('change',function(){
+      var id = $(this).val();
+      $.ajax({
+        type:'POST',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url:'/admin/website-key/'+id,
+        success:function(res){
+          if(res) location.reload();
+        }
+      })
+    })
+    
   </script>

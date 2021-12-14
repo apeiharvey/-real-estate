@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\House;
+use App\Models\WebsiteKey;
 use Illuminate\Support\Str;
 use Auth;
 use Session;
 
-class HouseController extends Controller
+class WebsiteKeyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,8 @@ class HouseController extends Controller
     public function index()
 
     {
-        $data['houses'] = House::where('website_key',Session::get('website_key'))->orderBy('id','DESC')->paginate(10);
-        $data['website_key'] = $this->website_key;
-        return view('backend.house.index',$data);
+        $houses=House::orderBy('id','DESC')->paginate(10);
+        return view('backend.house.index')->with('houses',$houses);
     }
 
     /**
@@ -30,8 +29,7 @@ class HouseController extends Controller
      */
     public function create()
     {
-        $data['website_key'] = $this->website_key;
-        return view('backend.house.create',$data);
+        return view('backend.house.create');
     }
 
     /**
@@ -52,7 +50,6 @@ class HouseController extends Controller
 
         $data=$request->all();
         $data['created_by'] = Auth::user()->id;
-        $data['website_key'] = Session::get('website_key');
         // return $slug;
         $status=House::create($data);
         if($status){
@@ -83,9 +80,8 @@ class HouseController extends Controller
      */
     public function edit($id)
     {
-        $data['house'] =House::findOrFail($id);
-        $data['website_key'] = $this->website_key;
-        return view('backend.house.edit',$data);
+        $house=House::findOrFail($id);
+        return view('backend.house.edit')->with('house',$house);
     }
 
     /**
@@ -97,24 +93,15 @@ class HouseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $house=House::findOrFail($id);
-        $this->validate($request,[
-            'name'=>'string|required',
-            'images_thumbnail'=>'string|required',
-            'status'=>'required|in:active,inactive',
-            'price'=>'numeric|min:1'
-        ]);
-        $data=$request->all();
-        $data['updated_by'] = Auth::user()->id;
-        $data['website_key'] = Session::get('website_key');
-        $status=$house->fill($data)->save();
-        if($status){
-            request()->session()->flash('success','House successfully updated');
+        try{
+            Session::forget('website_key');
+            Session::put('website_key',$id);
+        }catch(Exception $e){
+            return false;
         }
-        else{
-            request()->session()->flash('error','Error occurred while updating house');
-        }
-        return redirect()->route('unit-type.index');
+
+        return true;
+
     }
 
     /**

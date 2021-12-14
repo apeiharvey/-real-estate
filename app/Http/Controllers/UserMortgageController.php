@@ -7,6 +7,8 @@ use App\Models\UserMortage;
 use App\Models\House;
 use Illuminate\Support\Str;
 use Auth;
+use Session;
+
 class UserMortgageController extends Controller
 {
     /**
@@ -16,13 +18,15 @@ class UserMortgageController extends Controller
      */
     public function index()
     {
-        $mortgage=UserMortage::select('user_mortages.id','user_mortages.email','user_mortages.phone_number',
+        $data['website_key'] = $this->website_key;
+        $data['mortgage'] =UserMortage::select('user_mortages.id','user_mortages.email','user_mortages.phone_number',
         'houses.name as house_name','user_mortages.name','user_mortages.time_period','user_mortages.payment',
         'user_mortages.created_at')
+        ->where('website_key',Session::get('website_key'))
         ->leftJoin('houses','houses.id','=','user_mortages.house_id')
         ->orderBy('id','DESC')
         ->paginate(25);
-        return view('backend.user-mortgage.index')->with('mortgage',$mortgage);
+        return view('backend.user-mortgage.index')->with('mortgage',$data);
     }
 
     /**
@@ -138,10 +142,12 @@ class UserMortgageController extends Controller
     }
 
     public function userMortgageChart(){
+        $website_key = Session::get('website_key');
         $year=\Carbon\Carbon::now()->year;
         // dd($year);
         $items=UserMortage::select(\DB::raw("COUNT(*) as count"),\DB::raw("MONTHNAME(created_at) as month_name"),\DB::raw("MONTH(created_at) as month"))
             ->whereYear('created_at',$year)
+            ->where('website_key',$website_key)
             ->groupBy('month_name','month')
             ->orderBy('month')
             ->get();
