@@ -17,7 +17,7 @@
                   <i class="fa fa-picture-o"></i> Choose
                   </a>
               </span>
-          <input id="thumbnail1" class="form-control" type="text" name="logo" value="{{$data->logo}}">
+          <input id="thumbnail1" class="form-control" type="text" name="logo" value="{{@$data->logo}}">
         </div>
         <div id="holder1" style="margin-top:15px;max-height:100px;"></div>
           @error('logo')
@@ -33,7 +33,7 @@
                   <i class="fa fa-picture-o"></i> Choose
                   </a>
               </span>
-          <input id="inputMaps" class="form-control" type="text" name="photo" value="{{$data->photo}}">
+          <input id="inputMaps" class="form-control" type="text" name="photo" value="{{@$data->photo}}">
         </div>
         <div id="holder_maps" style="margin-top:15px;max-height:100px;"></div>
           @error('photo')

@@ -14,8 +14,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
-        return view('backend.users.index')->with('users',$users);
+        $data['website_key'] = $this->website_key;
+        $data['users'] = User::orderBy('id','ASC')->paginate(10);
+
+        return view('backend.users.index',$data);
     }
 
     /**

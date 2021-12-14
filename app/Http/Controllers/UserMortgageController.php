@@ -19,14 +19,15 @@ class UserMortgageController extends Controller
     public function index()
     {
         $data['website_key'] = $this->website_key;
-        $data['mortgage'] =UserMortage::select('user_mortages.id','user_mortages.email','user_mortages.phone_number',
+        $data['mortgage'] = UserMortage::select('user_mortages.id','user_mortages.email','user_mortages.phone_number',
         'houses.name as house_name','user_mortages.name','user_mortages.time_period','user_mortages.payment',
         'user_mortages.created_at')
-        ->where('website_key',Session::get('website_key'))
+        ->where('user_mortages.website_key',Session::get('website_key'))
         ->leftJoin('houses','houses.id','=','user_mortages.house_id')
         ->orderBy('id','DESC')
         ->paginate(25);
-        return view('backend.user-mortgage.index')->with('mortgage',$data);
+        return view('backend.user-mortgage.index',$data);
+        
     }
 
     /**

@@ -39,7 +39,7 @@
           </tfoot>
           <tbody>
            
-            @foreach($mortgage as $mort) 
+            @foreach($mortgage as $mort)
                 <tr>
                     <td>{{$mort->id}}</td>
                     <td>{{$mort->name}}</td>

@@ -61,8 +61,9 @@ class AdminController extends Controller
     }
 
     public function settings(){
-        $data=Settings::where('website_key',Session::get('website_key'))->first();
-        return view('backend.setting')->with('data',$data);
+        $data['website_key'] = $this->website_key;
+        $data['data'] = Settings::where('website_key',Session::get('website_key'))->first();
+        return view('backend.setting',$data);
     }
 
     public function settingsUpdate(Request $request){
