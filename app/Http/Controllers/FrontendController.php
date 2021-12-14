@@ -23,7 +23,7 @@ class FrontendController extends Controller
                         ->get();
         $unit_type = House::select('id','name','images_thumbnail','bedroom','bathroom','floor','area_building','area_surface','description','images_detail')
                             ->where('status','active')
-                            // ->where('website_key', config('app.website_key'))
+                            ->where('website_key', config('app.website_key'))
                             ->orderBy('id','asc')
                             ->get();
         $gallery = Gallery::select('title','photo','description','url')
@@ -48,7 +48,7 @@ class FrontendController extends Controller
     public function simulateMortgage(Request $request){
         $unit_type = House::select('id','name','price')
                           ->where('status','active')
-                          // ->where('website_key', config('app.website_key'))
+                          ->where('website_key', config('app.website_key'))
                           ->get();
         $setting = $this->setting;
         return view('frontend.simulate-mortages', compact(['unit_type', 'setting']));
@@ -59,6 +59,7 @@ class FrontendController extends Controller
         $user_mortgage->house_id = $request->house_id;
         $user_mortgage->payment = strtoupper($request->payment);
         $user_mortgage->time_period = $request->time_period;
+        $user_mortgage->website_key = config('app.website_key');
         $user_mortgage->save();
         return $user_mortgage->id;
     }
@@ -87,7 +88,7 @@ class FrontendController extends Controller
         $unit_type = House::find($request->unit)
                           ->select('images_detail')
                           ->where('status','active')
-                        //   ->where('website_key', config('app.website_key'))
+                          ->where('website_key', config('app.website_key'))
                           ->first();
         if($unit_type){
             if(str_contains($unit_type->images_detail, ',')){
