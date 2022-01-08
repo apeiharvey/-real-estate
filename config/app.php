@@ -58,7 +58,7 @@ return [
 
     'website_key' => env('WEBSITE_KEY', 'uptown'),
     
-    'app_asset_url' => env('APP_ASSET_URL', null),
+    'app_asset_url' => env('APP_ASSET_URL', 'https://hivecommercials.com'),
 
     /*
     |--------------------------------------------------------------------------
