@@ -16,7 +16,7 @@
                         </div>
                         @endif
                     @else
-                        <img style="width:100%" src="{{config('app.app_asset_url').$val->photo)}}"/>
+                        <img style="width:100%" src="{{config('app.app_asset_url').$val->photo}}"/>
                     @endif
                 </div>
                 @php $counter++; @endphp
