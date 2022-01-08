@@ -7,7 +7,7 @@
                     @if(isset($val->url))
                         @if($val->type == 'image')
                         <a href="{{$val->url}}" target="_blank">
-                            <img style="width:100%" src="{{config('app.app_asset_url').$val->photo}}" title="{{$val->description}}"/>
+                            <img style="width:100%" src="{{'https://hivecommercials.com/'.$val->photo}}" title="{{$val->description}}"/>
                             {{-- <img style="width:100%" src="{{asset($val->photo)}}"  title="{{$val->description}}"/> --}}
                         </a>
                         @elseif($val->type == 'video')
