@@ -7,9 +7,9 @@
                     @if(isset($val->url))
                         @if($val->type == 'image')
                         <a href="{{$val->url}}" target="_blank">
-                            <img style="width:100%" src="{{asset($val->photo)}}"  title="{{$val->description}}"/>
+                            <img style="width:100%" src="{{ENV('APP_ASSET_URL').$val->photo}}" title="{{$val->description}}"/>
+                            {{-- <img style="width:100%" src="{{asset($val->photo)}}"  title="{{$val->description}}"/> --}}
                         </a>
-                        {{-- <img style="width:100%" src="{{ENV('APP_ASSET_URL').$val->photo}}" title="{{$val->description}}"/> --}}
                         @elseif($val->type == 'video')
                         <div class="item youtube-sound">
                             <div class="embed-player" id="vid-{{$counter}}" data-vid="{{$val->url}}" style="width:100%; height:690px"></div>
