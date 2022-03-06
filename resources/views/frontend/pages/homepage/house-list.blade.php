@@ -60,31 +60,40 @@
                             <div class="modal-body">
                             <!-- carousel -->
                                 <div
-                                    id='carouselExampleIndicators'
+                                    id='carouselExampleIndicators_{{$counter}}'
                                     class='carousel slide'
                                     data-ride='carousel'
                                     >
                                     @php
-                                        $counter++;
                                         $data=explode(',',$row->images_detail);
                                     @endphp
                                     <ol class='carousel-indicators'>
                                         @for($i=0; $i<count($data); $i++)
-                                            <li data-target='#carouselExampleIndicators' data-slide-to='{{$i}}' class='active'></li>
+                                            @if($i==0)
+                                            @php $active = 'active'; @endphp
+                                            @else
+                                            @php $active = ''; @endphp
+                                            @endif
+                                            <li data-target='#carouselExampleIndicators_{{$counter}}' data-slide-to='{{$i}}' class='{{$active}}'></li>
                                         @endfor
                                     </ol>
                                     <div class='carousel-inner'>
                                         @for($j=0; $j<count($data); $j++)
-                                            <div class='carousel-item active'>
+                                            @if($j==0)
+                                            @php $active = 'active'; @endphp
+                                            @else
+                                            @php $active = ''; @endphp
+                                            @endif
+                                            <div class='carousel-item {{$active}}'>
                                                 <img class='img-size' src="{{asset($data[$j])}}" alt='First slide' />
                                             </div>
                                         @endfor
                                     </div>
-                                    <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
+                                    <a class='carousel-control-prev' href='#carouselExampleIndicators_{{$counter}}' role='button' data-slide='prev'>
                                         <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                                         <span class='sr-only'>Previous</span>
                                     </a>
-                                    <a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
+                                    <a class='carousel-control-next' href='#carouselExampleIndicators_{{$counter}}' role='button' data-slide='next'>
                                         <span class='carousel-control-next-icon' aria-hidden='true'></span>
                                         <span class='sr-only'>Next</span>
                                     </a>
@@ -96,6 +105,9 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    $counter++;
+                @endphp
                 @endforeach
             </div>
             @else
