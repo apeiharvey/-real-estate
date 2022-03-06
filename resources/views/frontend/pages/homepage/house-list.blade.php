@@ -1,12 +1,12 @@
-<div class="ltn__apartments-plan-area pt-115" id="unit-type">
+<div class="bg-cendana-neu-1 ltn__apartments-plan-area pt-115" id="unit-type">
     <div class="container">
         <div class="row">
             @if($unit_type)
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h1 class="section-title">Unit Type</h1>
+                    <h1 class="section-title cendana-text-sec-1">Unit Type</h1>
                 </div>
-                <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center">
+                <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center cendana-text-sec-1">
                     <div class="nav">
                         @php $counter=0; $show='';@endphp
                         @foreach($unit_type as $val)

@@ -1,5 +1,5 @@
-<footer class="ltn__footer-area  ">
-	<div class="footer-top-area  section-bg-2 plr--5">
+<footer class="ltn__footer-area ">
+	<div class="footer-top-area  bg-cendana-sec-1 plr--5">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
@@ -7,7 +7,7 @@
 						<div class="footer-logo">
 							<div class="site-logo">
 								@if(isset($setting) && !empty($setting->logo))
-									<img src="{{asset($setting->logo)}}" alt="Nama Website">
+									<img style="width:150px" src="{{asset($setting->logo)}}" alt="Nama Website">
 								@else
 								<img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website">
 								@endif
@@ -40,8 +40,8 @@
 						</div> -->
 					</div>
 					<div class="footer-widget footer-menu-widget clearfix">
-						<h3 class="footer-title">Contact Us</h3>
-						<div class="footer-menu">
+						<h3 class="footer-title cendana-text-prim-1">Contact Us</h3>
+						<div class="footer-menu cendana-footer">
 							<ul>
 								<!-- @if(isset($setting) && !empty($setting->email))
 								<li>
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-4 col-md-4 col-sm-12 col-12">
+				{{-- <div class="col-xl-4 col-md-4 col-sm-12 col-12">
 					<div class="ltn__google-map-locations-area">
 						<img src="{{asset($setting->photo)}}">
 					</div>
@@ -96,16 +96,16 @@
 					<div class="ltn__google-map-locations-area">
 						<img src="{{asset($setting->maps2)}}">
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
-	<div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5">
+	<div class="ltn__copyright-area ltn__copyright-2 bg-cendana-sec-1  plr--5">
 		<div class="container-fluid ltn__border-top-2">
 			<div class="row">
 				<div class="col-md-6 col-12">
 					<div class="ltn__copyright-design clearfix">
-						<p>All Rights Reserved @ Company <span class="current-year"></span></p>
+						<p class="cendana-text-prim-1">All Rights Reserved @ Company <span class="current-year"></span></p>
 					</div>
 				</div>
 			</div>

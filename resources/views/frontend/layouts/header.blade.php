@@ -1,7 +1,7 @@
 <!-- HEADER AREA START (header-5) -->
-<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent gradient-color-2">
+<header class="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent bg-cendana-sec-1 text-white pt-0 pb-0">
     <!-- ltn__header-middle-area start -->
-    <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black">
+    <div class="ltn__header-middle-area ltn__header-sticky bg-cendana-sec-1 text-white pt-0 pb-0">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -9,7 +9,7 @@
                         <div class="site-logo">
                             <a href="{{route('home')}}">
 								@if(isset($setting) && !empty($setting->logo))
-                                <img src="{{asset($setting->logo)}}" alt="Nama Website">
+                                <img style="width:130px" src="{{asset($setting->logo)}}" alt="Nama Website">
 								@else
                                 <img src="{{asset('frontend/img/logo-2.png')}}" alt="Nama Website">
                                 @endif
@@ -25,7 +25,6 @@
                                     <li><a class="linkss pointer" href="{{route('home')}}#unit-type" data-href="#unit-type">Unit Type</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#facility" data-href="#facility">Promotion</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#contact" data-href="#contact">Contact</a></li>
-                                    <li><a class="pointer" style="color:white" title="Mortgage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortgage Simulation</a></li>
                                 </ul>
                             </div>
                         </nav>

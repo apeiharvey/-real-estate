@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h1 class="section-title">{{$setting->promotion_title}}</h1>
+                    <h1 class="section-title cendana-text-sec-1">{{$setting->promotion_title}}</h1>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
                     <div class="btn-wrapper">
-                        <a href="{{asset($setting->brochure)}}" class="btn btn-effect-3 btn-orange text-white" download>Get Brochure</a>
+                        <a href="{{asset($setting->brochure)}}" class="btn btn-cen-sec-1" download>Get Brochure</a>
                     </div>
                 </div>
             </div>

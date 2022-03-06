@@ -7,5 +7,5 @@
 
     @include('frontend.pages.homepage.house-list')
 
-    @include('frontend.pages.homepage.promotion')
+    @include('frontend.pages.homepage.testimonial')
 @endsection
