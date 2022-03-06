@@ -1,4 +1,4 @@
-<div class="section-bg-1 before-bg-top bg-image-top pt-115 pb-70">
+<div class="section-bg-1 bg-image-top pt-115 pb-70 bg-cendana-neu-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -98,7 +98,7 @@
                         </div>
                         <input type="text" id='uid' value="{{Request::get('uid')}}" hidden>
                         <div class="btn-wrapper">
-                            <button class="theme-btn-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Calculate</button>
+                            <button class="btn-cen-prim-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Calculate</button>
                         </div>
                     </form>
                 </div>
