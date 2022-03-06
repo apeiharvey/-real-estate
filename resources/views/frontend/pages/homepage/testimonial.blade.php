@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
-                    <h1 class="section-title">Our Testimonial</h1>
+                    <h1 class="section-title cendana-text-sec-1">Our Testimonial</h1>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="row mt-5">
             <div class="col-lg-12 text-center">
                 <div class="btn-wrapper">
-                    <a class="btn btn-cen-prim-2" target="_blank" href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual">Contact Us</a>
+                    <a class="btn btn-cen-prim-1" target="_blank" href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual">Contact Us</a>
                 </div>
             </div>
         </div>

@@ -8511,16 +8511,6 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   color: var(--cendana-prim-1);
 }
 
-.btn-sec-1{
-  background-color: var(--cendana-sec-1) !important;
-  color: var(--white);
-  border-radius:20px !important;
-}
-
-.btn-sec-1:hover{
-  color: var(--white) !important;
-}
-
 .btn-cen-sec-1{
   background-color: var(--cendana-sec-1);
   color: var(--cendana-neu-1);
@@ -8531,14 +8521,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   color: var(--cendana-neu-1);
 }
 
-.btn-cen-prim-2{
-  background-color: var(--cendana-sec-2);
-  color: var(--cendana-neu-1);
+.btn-cen-prim-1{
+  background-color: var(--cendana-prim-1);
+  color: var(--cendana-sec-1);
   border-radius:20px !important;
 }
 
-.btn-cen-prim-2:hover{
-  color: var(--cendana-neu-1);
+.btn-cen-prim-1:hover{
+  color: var(--cendana-sec-1);
 }
 
 .section-title {
