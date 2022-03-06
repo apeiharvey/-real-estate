@@ -7,6 +7,8 @@ use App\Models\Room;
 use App\Models\House;
 use Illuminate\Support\Str;
 use Auth;
+use Session;
+
 class RoomController extends Controller
 {
     /**
@@ -20,7 +22,7 @@ class RoomController extends Controller
         $data['rooms'] =Room::select('rooms.id','rooms.images','rooms.status','houses.name as house_name','rooms.name as room_name')
         ->leftJoin('houses','houses.id','=','rooms.house_id')
         ->where('type','room')
-        ->where('website_key',Session::get('website_key'))
+        ->where('rooms.website_key',Session::get('website_key'))
         ->orderBy('id','DESC')
         ->paginate(10);
         return view('backend.room.index',$data);
@@ -35,6 +37,7 @@ class RoomController extends Controller
     {
         $data = array();
         $data['website_key'] = $this->website_key;
+        $data['houses'] = House::where('website_key',Session::get('website_key'))->get();
         return view('backend.room.create',$data);
     }
 
@@ -61,10 +64,10 @@ class RoomController extends Controller
         // return $slug;
         $status=Room::create($data);
         if($status){
-            request()->session()->flash('success','Facility successfully added');
+            request()->session()->flash('success','Room successfully added');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding facility');
+            request()->session()->flash('error','Error occurred while adding room');
         }
         return redirect()->route('room.index');
     }

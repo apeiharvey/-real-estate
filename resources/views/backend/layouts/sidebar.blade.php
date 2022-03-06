@@ -85,37 +85,37 @@
     </li>
 
     {{-- Room --}}
-    <!-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#roomCollapse" aria-expanded="true" aria-controls="roomCollapse">
+          <i class="fas fa-window-maximize"></i>
+          <span>Facility</span>
+        </a>
+        <div id="roomCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Facility Options:</h6>
+            <a class="collapse-item" href="{{route('facility.index')}}">Facility</a>
+            <a class="collapse-item" href="{{route('facility.create')}}">Add Facility</a>
+          </div>
+        </div>
+    </li>
+
+    {{-- Promo --}}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facilityCollapse" aria-expanded="true" aria-controls="facilityCollapse">
           <i class="fas fa-window-maximize"></i>
           <span>Room</span>
         </a>
-        <div id="roomCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="facilityCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Room Options:</h6>
             <a class="collapse-item" href="{{route('room.index')}}">Room</a>
             <a class="collapse-item" href="{{route('room.create')}}">Add Room</a>
           </div>
         </div>
-    </li> -->
-
-    {{-- Promo --}}
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facilityCollapse" aria-expanded="true" aria-controls="facilityCollapse">
-          <i class="fas fa-percent"></i>
-          <span>Promo</span>
-        </a>
-        <div id="facilityCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Promo Options:</h6>
-            <a class="collapse-item" href="{{route('promo.index')}}">Promo</a>
-            <a class="collapse-item" href="{{route('promo.create')}}">Add Promo</a>
-          </div>
-        </div>
     </li>
 
     {{-- Testimony --}}
-    <!-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testimonyCollapse" aria-expanded="true" aria-controls="testimonyCollapse">
           <i class="fas fa-comments"></i>
           <span>Testimony</span>
@@ -127,7 +127,7 @@
             <a class="collapse-item" href="{{route('testimony.create')}}">Add Testimony</a>
           </div>
         </div>
-    </li> -->
+    </li>
 
     <!--Orders -->
     <!-- <li class="nav-item">

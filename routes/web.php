@@ -115,6 +115,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::resource('room','RoomController');
     // Promo
     Route::resource('promo','FacilityController');
+    // Facility
+    Route::resource('facility','FacilityController');
     // Testimony
     Route::resource('testimony','TestimonyController');
 
