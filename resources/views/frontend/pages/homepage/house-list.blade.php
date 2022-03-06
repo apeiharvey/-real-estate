@@ -28,7 +28,7 @@
                         <div class="about-us-info-wrap">
                             <div class="section-title-area ltn__section-title-2--- mb-30">
                                 <h1 class="section-title">{{$row->name}}</h1>
-                                <p>{{$row->description}}</p>
+                                <p>{!!$row->description!!}</p>
                                 <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal_{{$counter}}">
                                     READ MORE
                                 </a>
@@ -40,7 +40,7 @@
                         <div class="about-us-info-wrap">
                             <div class="section-title-area ltn__section-title-2--- mb-30">
                                 <h1 class="section-title">{{$row->name}}</h1>
-                                <p>{{$row->description}}</p>
+                                <p>{!!$row->description!!}</p>
                                 <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal_{{$counter}}">
                                     READ MORE
                                 </a>
