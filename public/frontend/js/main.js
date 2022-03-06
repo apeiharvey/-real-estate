@@ -127,6 +127,62 @@
                 $(this).addClass('column-'+ulChildren)
             }
         });
+
+        
+        /* --------------------------------------------------------
+            21. Testimonial Slider - 5
+        --------------------------------------------------------- */
+        $('.ltn__testimonial-slider-5-active').slick({
+            arrows: true,
+            centerMode: false,
+            centerPadding: '80px',
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        centerMode: false,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        centerMode: false,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        centerMode: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
         
 
         /* Remove Attribute( href ) from sub-menu title in mega-menu */
