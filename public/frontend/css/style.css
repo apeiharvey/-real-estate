@@ -861,7 +861,7 @@ button:focus {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: 20px;
-    color: var(--ltn__secondary-color); }
+    color: var(--cendana-neu-1) !important; }
 
 .input-item-name.ltn__custom-icon::before {
   content: "\f007"; }

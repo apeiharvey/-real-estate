@@ -25,7 +25,7 @@
                                     <li><a class="linkss pointer" href="{{route('home')}}#unit-type" data-href="#unit-type">Unit Type</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#facility" data-href="#facility">Promotion</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#contact" data-href="#contact">Contact</a></li>
-                                    <li><a class="pointer" style="color:white" title="Mortgage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortgage Simulation</a></li>
+                                    <li><a class="pointer" style="color:white" title="Mortgage Simulation" data-toggle="modal" data-target="#modal_form">Mortgage Simulation</a></li>
                                 </ul>
                             </div>
                         </nav>
