@@ -8506,6 +8506,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   background-color: var(--cendana-sec-1) !important;
 }
 
+.ltn__form-box h6{
+  color:var(--cendana-sec-1) !important;
+}
 
 .cendana-footer > ul > li > h4{
   color: var(--cendana-prim-1);
@@ -10205,8 +10208,7 @@ blockquote {
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 30px;
-  margin-bottom: 50px; }
+  padding-bottom: 30px; }
   .ltn__testimonial-item .ltn__testimoni-img img {
     border-radius: 100%; }
   .ltn__testimonial-item.text-center .ltn__testimoni-img {
@@ -10421,14 +10423,9 @@ blockquote {
 
 /* testimonial-item-7 */
 .ltn__testimonial-item-7 {
-  background-color: var(--white);
   padding: 30px 35px 40px;
   max-width: 100%;
   border-radius: 10px;
-  -webkit-box-shadow: var(--ltn__box-shadow-4);
-  box-shadow: var(--ltn__box-shadow-4);
-  border: 1px solid;
-  border-color: var(--border-color-13);
   position: relative; }
   .ltn__testimonial-item-7 .ltn__testimonial-img {
     margin-bottom: 30px; }
@@ -10449,7 +10446,9 @@ blockquote {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center; 
+    justify-content: center;
+  }
     .ltn__testimonial-item-7 .ltn__testimoni-info-inner .ltn__testimoni-img {
       max-width: 60px;
       margin-right: 15px;
@@ -10468,7 +10467,6 @@ blockquote {
     bottom: 0;
     width: 0%;
     height: 4px;
-    background-color: var(--ltn__secondary-color);
     -webkit-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
@@ -12619,9 +12617,7 @@ input.cart-plus-minus-box {
     color: var(--ltn__color-1); }
 
 .input-item .nice-select {
-  border: 2px solid;
-  border-color: var(--border-color-1);
-  border-radius: 0;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 400;
   height: 65px;

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2 text-center">
-                    <h1 class="section-title">Simulate Mortgage</h1>
+                    <h1 class="section-title cendana-text-sec-1">Simulate Mortgage</h1>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                         </div>
                         <input type="text" id='uid' value="{{Request::get('uid')}}" hidden>
                         <div class="btn-wrapper">
-                            <button class="btn-cen-prim-1 btn reverse-color btn-block" type="submit" id="simulate_btn">Calculate</button>
+                            <button class="btn-cen-prim-1 btn btn-block" type="submit" id="simulate_btn">Calculate</button>
                         </div>
                     </form>
                 </div>

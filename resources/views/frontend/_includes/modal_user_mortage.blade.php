@@ -29,7 +29,7 @@
                                                     <input type="text" name="user_phone" id="phone" placeholder="Phone Number" required>
                                                 </div>
                                                 <div class="btn-wrapper">
-                                                    <button class="btn btn-cen-prim-1 btn-effect-1 text-uppercase" type="submit">Simulate Mortgage</button>
+                                                    <button class="btn btn-cen-prim-1 text-uppercase" type="submit">Simulate Mortgage</button>
                                                 </div>
                                             </form>
                                         </div>
