@@ -20,6 +20,7 @@ class AdminController extends Controller
     public function index(){
         $data = array();
         $data['property'] = House::countActiveHouse();
+        $data['testimony'] = Testimony::countActiveTestimony();
         $data['promo'] = Room::countActiveFacility();
         $data['website_key'] = $this->website_key;
         $website_key = Session::get('website_key');
