@@ -7,7 +7,7 @@ use Session;
 
 class Room extends Model
 {
-    protected $fillable=['name','house_id','images','created_by','updated_by','status','type'];
+    protected $fillable=['name','house_id','images','created_by','updated_by','status','type','website_key'];
 
     public static function countActiveRoom(){
         $data=self::where('status','active')->where('type','room')->count();

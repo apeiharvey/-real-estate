@@ -15,8 +15,9 @@ class TestimonyController extends Controller
      */
     public function index()
     {
-        $query=Testimony::orderBy('id','DESC')->paginate(10);
-        return view('backend.testimony.index')->with('testimonies',$query);
+        $data['website_key'] = $this->website_key;
+        $data['testimonies']=Testimony::orderBy('id','DESC')->paginate(10);
+        return view('backend.testimony.index',$data);
     }
 
     /**
@@ -26,6 +27,7 @@ class TestimonyController extends Controller
      */
     public function create()
     {
+        $data['website_key'] = $this->website_key;
         return view('backend.testimony.create');
     }
 
@@ -78,6 +80,7 @@ class TestimonyController extends Controller
     public function edit($id)
     {
         $data=array();
+        $data['website_key'] = $this->website_key;
         $data['testimony']=Testimony::findOrFail($id);
         return view('backend.testimony.edit',$data);
     }

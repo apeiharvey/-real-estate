@@ -17,8 +17,8 @@
                         <img src="{{asset($val->images)}}" alt="{{$val->name}}">
                     </div>
                     <div class="search-by-place-info">
-                        <h4>{{$val->house_name}}</h4>
-                        <h6>{{$val->room_name}}</h6>
+                        <h4 class="cendana-text-sec-1">{{$val->room_name}}</h4>
+                        <h6>{{$val->house_name}}</h6>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,10 @@
                 <div class="ltn__search-by-place-item">
                     <div class="search-by-place-img">
                         <img src="{{asset($val->images)}}" alt="{{$val->room_name}}">
+                    </div>
+                    <div class="search-by-place-info">
+                        <h4 class="cendana-text-sec-1">{{$val->room_name}}</h4>
+                        <h6>Facility</h6>
                     </div>
                 </div>
             </div>
