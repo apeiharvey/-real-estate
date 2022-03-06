@@ -1,3 +1,10 @@
+@push('styles')
+<style>
+.modal-body {
+   padding: 0;
+}
+</style>
+@endpush
 <div class="bg-cendana-neu-1 ltn__apartments-plan-area pt-115" id="unit-type">
     <div class="container">
         <div class="row">
@@ -6,80 +13,104 @@
                 <div class="section-title-area ltn__section-title-2--- text-center">
                     <h1 class="section-title cendana-text-sec-1">Unit Type</h1>
                 </div>
-                <div class="ltn__tab-menu ltn__tab-menu-3 ltn__tab-menu-top-right-- text-uppercase--- text-center cendana-text-sec-1">
-                    <div class="nav">
-                        @php $counter=0; $show='';@endphp
-                        @foreach($unit_type as $val)
-                            @if($counter == 0)
-                                @php $show = 'active show'; $counter++; @endphp
-                            @else
-                            @php $show = ''; @endphp
-                            @endif
-                            <a class="{{$show}}" data-bs-toggle="tab" href="#{{Str::slug($val->name)}}">{{$val->name}}</a>
-                        @endforeach
+                @php
+                $counter = 0;
+                @endphp
+                @foreach($unit_type as $row)
+                <div class="row">
+                    @if($counter%2 == 1)
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-img-wrap about-img-right">
+                            <img src="{{asset($row->images_thumbnail)}}" alt="About Us Image">
+                        </div>
                     </div>
-                </div>
-                <div class="tab-content">
-                    @php $counter=0; $show=''; @endphp
-                    @foreach($unit_type as $val)
-                        @if($counter == 0)
-                            @php $show = 'active show'; $counter++; @endphp
-                        @else
-                        @php $show = ''; @endphp
-                        @endif
-                        <div class="tab-pane fade {{$show}}" id="{{Str::slug($val->name)}}">
-                            <div class="ltn__apartments-tab-content-inner">
-                                <div class="row">
-                                    <!-- <div class="col-lg-4 my-auto">
-                                        <div class="apartments-plan-info ltn__secondary-bg text-color-white">
-                                            <h2>{{$val->name}}</h2>
-                                            <div class="apartments-info-list apartments-info-list-color mt-40">
-                                                <ul>
-                                                    <li><label>Land Area</label><span>{{$val->area_surface}} m<sup>2</sup></span></li>
-                                                    <li><label>Building Area</label><span>{{$val->area_building}} m<sup>2</sup></span></li>
-                                                    <li><label>Floor</label> <span>{{$val->floor}} Floor</span></li>
-                                                    <li><label>Bathroom</label> <span>{{$val->bathroom}} Bathroom</span></li>
-                                                    <li><label>Bedroom</label> <span>{{$val->bedroom}} Bedroom</span></li>
-                                                </ul>
-                                            </div>
-                                            <br/>
-                                            @if(isset($val->description))
-                                            {!!$val->description!!}
-                                            @endif
-                                        </div>
-                                    </div> -->
-                                    <div class="col-lg-12 my-auto">
-                                        <div class="row house-list slick-arrow-1">
-                                            <div class="apartments-plan-img">
-                                                <img src="{{asset($val->images_thumbnail)}}" alt="{{$val->name}}">
-                                            </div>
-                                            @if(isset($val->images_detail))
-                                                @if(strpos($val->images_detail,','))
-                                                    @php
-                                                    $images_detail = explode(',', $val->images_detail);
-                                                    @endphp
-                                                @else
-                                                    @php
-                                                    $images_detail = array();
-                                                    array_push($images_detail, $val->images_detail);
-                                                    @endphp
-                                                @endif
-                                            @else
-                                                @php $images_detail = array(); @endphp
-                                            @endif
-                                            @if(isset($images_detail))
-                                                @foreach($images_detail as $val_detail)
-                                                    <div class="apartments-plan-img">
-                                                        <img src="{{asset($val_detail)}}" alt="{{$val->name}}">
-                                                    </div>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-info-wrap">
+                            <div class="section-title-area ltn__section-title-2--- mb-30">
+                                <h1 class="section-title">{{$row->name}}</h1>
+                                <p>hiya hiya</p>
+                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal_{{$counter}}">
+                                    READ MORE
+                                </a>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    @else
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-info-wrap">
+                            <div class="section-title-area ltn__section-title-2--- mb-30">
+                                <h1 class="section-title">{{$row->name}}</h1>
+                                <p>hiya hiya</p>
+                                <a href="#" title="Quick View" data-toggle="modal" data-target="#quick_view_modal_{{$counter}}">
+                                    READ MORE
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-us-img-wrap about-img-right">
+                            <img src="{{asset($row->images_thumbnail)}}" alt="About Us Image">
+                        </div>
+                    </div>
+                    @endif
+                </div>
+                <div class="modal fade" id="quick_view_modal_{{$counter}}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                            <!-- carousel -->
+                                <div
+                                    id='carouselExampleIndicators'
+                                    class='carousel slide'
+                                    data-ride='carousel'
+                                    >
+                                    @php
+                                        $counter++;
+                                        $data=explode(',',$row->images_detail);
+                                    @endphp
+                                    <ol class='carousel-indicators'>
+                                        @for($i=0; $i<count($data); $i++)
+                                            <li data-target='#carouselExampleIndicators' data-slide-to='{{$i}}' class='active'></li>
+                                        @endfor
+                                    </ol>
+                                    <div class='carousel-inner'>
+                                        @for($j=0; $j<count($data); $j++)
+                                            <div class='carousel-item active'>
+                                                <img class='img-size' src="{{asset($data[$j])}}" alt='First slide' />
+                                            </div>
+                                        @endfor
+                                    </div>
+                                    <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
+                                        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                                        <span class='sr-only'>Previous</span>
+                                    </a>
+                                    <a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
+                                        <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                                        <span class='sr-only'>Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @else
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-info-wrap">
+                    <div class="section-title-area ltn__section-title-2--- mb-30">
+                        <h1 class="section-title">Today Sells Properties</h1>
+                        <p>hiya hiya</p>
+                        <a href="#" class="modal_read" data-toggle="modal" data-target="#largeModal" style="color: #007bff">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-img-wrap about-img-right">
+                    <img src="images/others/9.png" alt="About Us Image">
                 </div>
             </div>
             @endif
