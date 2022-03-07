@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Hive Commercial')
+@section('title','Marq - Nest - Cendana Homes')
 @section('main-content')
     @include('frontend.pages.homepage.banner-slider')
 
