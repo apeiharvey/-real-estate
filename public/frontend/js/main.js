@@ -336,31 +336,31 @@
         /* --------------------------------------------------------
             # banner
         --------------------------------------------------------- */
-        // $('.banner').slick({
-        //     autoplay: true,
-        //     autoplaySpeed: 4000,
-        //     arrows: true,
-        //     dots: false,
-        //     fade: true,
-        //     cssEase: 'linear',
-        //     infinite: true,
-        //     speed: 300,
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-        //     nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-        //     responsive: [
-        //         {
-        //             breakpoint: 1200,
-        //             settings: {
-        //                 arrows: false,
-        //                 dots: false,
-        //             }
-        //         }
-        //     ]
-        // }).on('afterChange', function(){
-        //     new WOW().init();
-        // });
+        $('.banner').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            arrows: true,
+            dots: false,
+            fade: true,
+            cssEase: 'linear',
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false,
+                        dots: false,
+                    }
+                }
+            ]
+        }).on('afterChange', function(){
+            new WOW().init();
+        });
         /* --------------------------------------------------------
             # property slider
         --------------------------------------------------------- */

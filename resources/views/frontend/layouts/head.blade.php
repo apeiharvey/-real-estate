@@ -42,6 +42,36 @@
     .slick-slide-arrow-1 .slick-arrow{
         background:transparent;
     }
+    
+    @media (min-width: 576px){
+        .link-area{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 40px;
+        }
+    }
+
+    @media (max-width: 576px){
+        .link-area {
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 36px;
+            display: flex;
+        }
+    }
+    
+    .link-area a {
+        display: block;
+        width: 100%;
+    }
+    .link-area a img {
+        display: block;
+        width: 100%;
+        transition: all .15s ease-in-out;
+    }
 </style>
 
 @stack('styles')

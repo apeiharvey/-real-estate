@@ -12,7 +12,6 @@
                 <li><a class="linkss pointer text-white" href="{{route('home')}}#unit-type" data-href="#unit-type">Property</a></li>
                 <li><a class="linkss pointer text-white" href="{{route('home')}}#facility" data-href="#facility">Promotion</a></li>
                 <li><a class="linkss pointer text-white" href="{{route('home')}}#contact" data-href="#contact">Contact</a></li>
-                <li><a class="text-white" title="Mortgage Simulation" data-bs-toggle="modal" data-bs-target="#modal_form">Mortgage Simulation</a></li>
             </ul>
         </div>
     </div>

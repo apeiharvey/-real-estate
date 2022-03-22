@@ -25,7 +25,6 @@
                                     <li><a class="linkss pointer" href="{{route('home')}}#unit-type" data-href="#unit-type">Unit Type</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#facility" data-href="#facility">Promotion</a></li>
                                     <li><a class="linkss pointer" href="{{route('home')}}#contact" data-href="#contact">Contact</a></li>
-                                    <li><a class="pointer" style="color:white" title="Mortgage Simulation" data-toggle="modal" data-target="#modal_form">Mortgage Simulation</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -43,6 +42,36 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed link-area d-none d-sm-block">
+        <a href="#" data-toggle="modal" title="Mortgage Simulation"data-aos="fade-right" data-aos-delay="300" data-target="#modal_form">
+            <img src="https://uptownestate.co.id/frontend/assets/img/mortgage-btn.png" alt="" srcset="">
+        </a>
+        <a href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual" target="_blank" data-aos="fade-right" data-aos-delay="400">
+            <img src="https://uptownestate.co.id/frontend/assets/img/whatsapp-btn.png" alt="" srcset="">
+        </a>
+        <a target="__blank" data-aos="fade-right" data-aos-delay="400">
+            <img src="https://uptownestate.co.id/frontend/assets/img/vr-btn.png" alt="" srcset="">
+        </a>
+    </div>
+    <div class="position-fixed link-area d-sm-none" style="height: inherit!important">
+        <div class="row mx-0">
+            <div class="col-4 px-0">
+                <a href="https://wa.me/{{$setting->mobile_phone}}?text=Saya%20tertarik%20dengan%20rumah%20Anda%20yang%20dijual" target="_blank" data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" class="w-100 h-100">
+                    <img src="https://uptownestate.co.id/frontend/assets/img/whatsapp-btn-mobile.png" alt="" srcset="" class="w-100 h-100">
+                </a>
+            </div>
+            <div class="col-6 px-0">
+                <a href="#" data-toggle="modal" title="Mortgage Simulation" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0" data-target="#modal_form" class="w-100 h-100">
+                    <img src="https://uptownestate.co.id/frontend/assets/img/mortgage-btn-mobile.png" alt="" srcset="" class="w-100 h-100">
+                </a>
+            </div>
+            <div class="col-2 px-0">
+                <a target="__blank" data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" class="w-100 h-100">
+                    <img src="https://uptownestate.co.id/frontend/assets/img/vr-btn-mobile.png" alt="" srcset="" class="w-100 h-100">
+                </a>
             </div>
         </div>
     </div>

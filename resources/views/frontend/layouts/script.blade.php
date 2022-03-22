@@ -22,5 +22,10 @@
         }, 2000);
         return false;
     });
+    $('.close').click(function(){
+        $('body').removeClass('modal-open');
+        $('#modal_form').removeClass('show');
+        $('.modal-backdrop').removeClass("show");
+    })
 </script>
 @stack('scripts')
