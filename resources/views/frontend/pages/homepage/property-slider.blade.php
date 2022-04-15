@@ -35,7 +35,6 @@
                     </div>
                     <div class="search-by-place-info">
                         <h4 class="cendana-text-sec-1">{{$val->room_name}}</h4>
-                        <h6>Facility</h6>
                     </div>
                 </div>
             </div>
